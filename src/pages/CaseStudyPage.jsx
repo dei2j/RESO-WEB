@@ -94,7 +94,7 @@ const ParallaxImg = ({ src, className }) => {
     target: ref,
     offset: ['start end', 'end start'],
   });
-  const rawY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+  const rawY = useTransform(scrollYProgress, [0, 1], ['0%', '-12%']);
   const y = useSpring(rawY, { stiffness: 80, damping: 30 });
 
   return (
@@ -179,7 +179,7 @@ const NextProjectSection = ({
       <div className="relative z-10 text-center pointer-events-none select-none flex flex-col items-center">
         {/* 프로젝트 번호 */}
         <motion.p
-          className="font-kulim font-light text-xs tracking-[0.3em] uppercase mb-2 text-white/40"
+          className="font-kulim font-light text-[10px] md:text-xs 3xl:text-xs 4xl:text-sm tracking-[0.3em] uppercase mb-2 text-white/40"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -190,7 +190,7 @@ const NextProjectSection = ({
 
         {/* Next Project 라벨 */}
         <motion.p
-          className="font-kulim font-light text-xs md:text-sm tracking-[0.2em] uppercase mb-3 md:mb-4 text-white/70"
+          className="font-kulim font-light text-xs md:text-sm 3xl:text-sm 4xl:text-base tracking-[0.2em] uppercase mb-3 md:mb-4 text-white/70"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -210,7 +210,7 @@ const NextProjectSection = ({
             visible: { transition: { staggerChildren: 0.03, delayChildren: 0.2 } },
           }}
         >
-          <p className="font-kulim font-extrabold text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl drop-shadow-lg">
+          <p className="font-kulim font-extrabold text-white text-2xl sm:text-3xl md:text-5xl lg:text-5xl 3xl:text-5xl 4xl:text-6xl drop-shadow-lg">
             {titleChars.map((char, i) => (
               <motion.span
                 key={i}
@@ -280,12 +280,12 @@ const NextProjectSection = ({
           <span
             className="font-kulim font-black text-2xl md:text-5xl uppercase tracking-tight"
             style={{
-              backgroundImage: `url(${nextHeroImage})`,
+              backgroundImage: `url(${encodeURI(nextHeroImage)})`,
               backgroundSize: '150vw 150vh',
               backgroundPosition: `calc(50% - ${cursorPos.x - window.innerWidth / 2}px) calc(50% - ${cursorPos.y - window.innerHeight / 2}px)`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              filter: 'brightness(1.4) saturate(1.3)',
+              filter: 'brightness(2) saturate(1.5) contrast(1.3)',
             }}
           >
             NEXT
@@ -344,7 +344,7 @@ const CaseStudyPage = () => {
   const imgs = data.images || [];
 
   return (
-    <main key={slug} className="bg-white text-black min-h-screen">
+    <main key={slug} className="bg-[#050505] text-black min-h-screen">
 
       {/* ━━ Hero ━━ */}
       <section className="relative w-full min-h-[55vh] md:min-h-[75vh] overflow-hidden">
@@ -359,14 +359,14 @@ const CaseStudyPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-[#050505]" />
 
         <motion.div
-          className="relative z-10 max-w-[1920px] mx-auto px-5 md:px-12 lg:px-16 pt-20 md:pt-32 pb-12 md:pb-20 flex flex-col justify-end min-h-[55vh] md:min-h-[75vh]"
+          className="relative z-10 max-w-[1200px] 3xl:max-w-[1400px] 4xl:max-w-[1920px] mx-auto px-5 md:px-12 lg:px-16 pt-20 md:pt-32 pb-12 md:pb-20 flex flex-col justify-end min-h-[55vh] md:min-h-[75vh]"
           initial="hidden"
           animate="visible"
         >
           {/* subtitle - 마스크 리빌 */}
           <div className="overflow-hidden pb-1">
             <motion.p
-              className="font-kulim font-normal text-white/80 text-xl sm:text-2xl md:text-[52px] leading-tight"
+              className="font-kulim font-normal text-white/80 text-xl sm:text-2xl md:text-[42px] 3xl:text-[48px] 4xl:text-[52px] leading-tight"
               variants={heroLineMask}
               custom={0}
             >
@@ -377,7 +377,7 @@ const CaseStudyPage = () => {
           {/* title - 마스크 리빌 */}
           <div className="overflow-hidden pb-1 mt-1 md:mt-2">
             <motion.h1
-              className="font-kulim font-bold text-[#f9f8ff] text-3xl sm:text-4xl md:text-[86px] leading-[1.05]"
+              className="font-kulim font-bold text-[#f9f8ff] text-3xl sm:text-4xl md:text-[64px] 3xl:text-[74px] 4xl:text-[86px] leading-[1.05]"
               variants={heroLineMask}
               custom={1}
             >
@@ -387,7 +387,7 @@ const CaseStudyPage = () => {
 
           {/* category - 페이드 */}
           <motion.p
-            className="font-inter font-light text-white/60 text-sm md:text-xl mt-4 md:mt-6"
+            className="font-inter font-light text-white/60 text-sm md:text-base 3xl:text-lg 4xl:text-xl mt-4 md:mt-6"
             variants={heroFade}
             custom={0}
           >
@@ -398,11 +398,11 @@ const CaseStudyPage = () => {
 
       {/* ━━ 목록으로 돌아가기 ━━ */}
       <div className="bg-[#050505]">
-        <div className="max-w-[1920px] mx-auto px-5 md:px-12 lg:px-16 pt-8 md:pt-10 pb-0">
+        <div className="max-w-[1200px] 3xl:max-w-[1400px] 4xl:max-w-[1920px] mx-auto px-5 md:px-12 lg:px-16 pt-8 md:pt-10 pb-0">
           <Link
             to="/works"
             onClick={() => { window.__fromWorksToCase = true; }}
-            className="inline-flex items-center gap-2 md:gap-3 font-kulim text-white/50 hover:text-white text-base md:text-xl lg:text-2xl transition-colors duration-300 group"
+            className="inline-flex items-center gap-2 md:gap-3 font-kulim text-white/50 hover:text-white text-base md:text-lg 3xl:text-xl 4xl:text-2xl transition-colors duration-300 group"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6 transition-transform duration-300 group-hover:-translate-x-2">
               <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -414,7 +414,7 @@ const CaseStudyPage = () => {
 
       {/* ━━ 본문 ━━ */}
       <section className="bg-[#050505] text-white">
-        <div className="max-w-[1920px] mx-auto px-5 md:px-12 lg:px-16 py-10 md:py-24">
+        <div className="max-w-[1200px] 3xl:max-w-[1400px] 4xl:max-w-[1920px] mx-auto px-5 md:px-12 lg:px-16 py-10 md:py-24">
 
           {/* Info Grid - 스태거 리빌 */}
           <motion.div
@@ -424,24 +424,24 @@ const CaseStudyPage = () => {
             animate="visible"
           >
             <motion.div variants={infoItemVariants}>
-              <p className="font-kulim font-normal text-white/50 text-xs md:text-xl mb-1 uppercase tracking-wider">Client</p>
+              <p className="font-kulim font-normal text-white/50 text-xs md:text-base 3xl:text-lg 4xl:text-xl mb-1 uppercase tracking-wider">Client</p>
               <Divider />
-              <p className="font-kulim font-bold text-white text-base md:text-[32px] mt-2 md:mt-3">{data.client}</p>
+              <p className="font-kulim font-bold text-white text-base md:text-2xl 3xl:text-[28px] 4xl:text-[32px] mt-2 md:mt-3">{data.client}</p>
             </motion.div>
             <motion.div variants={infoItemVariants}>
-              <p className="font-kulim font-normal text-white/50 text-xs md:text-xl mb-1 uppercase tracking-wider">My Role</p>
+              <p className="font-kulim font-normal text-white/50 text-xs md:text-base 3xl:text-lg 4xl:text-xl mb-1 uppercase tracking-wider">My Role</p>
               <Divider />
-              <p className="font-pretendard font-bold text-white text-sm md:text-2xl mt-2 md:mt-3 break-keep">{data.role}</p>
+              <p className="font-pretendard font-bold text-white text-sm md:text-xl 3xl:text-[22px] 4xl:text-2xl mt-2 md:mt-3 break-keep">{data.role}</p>
             </motion.div>
             <motion.div variants={infoItemVariants}>
-              <p className="font-kulim font-normal text-white/50 text-xs md:text-xl mb-1 uppercase tracking-wider">Project</p>
+              <p className="font-kulim font-normal text-white/50 text-xs md:text-base 3xl:text-lg 4xl:text-xl mb-1 uppercase tracking-wider">Project</p>
               <Divider />
-              <p className="font-pretendard font-bold text-white text-sm md:text-2xl mt-2 md:mt-3 break-keep">{data.project}</p>
+              <p className="font-pretendard font-bold text-white text-sm md:text-xl 3xl:text-[22px] 4xl:text-2xl mt-2 md:mt-3 break-keep">{data.project}</p>
             </motion.div>
             <motion.div variants={infoItemVariants} className="flex items-end">
               <Link
                 to="/contact-us"
-                className="inline-block w-full md:w-auto px-4 md:px-5 py-2 md:py-2.5 rounded-[32px] border border-white/30 font-pretendard font-bold text-white text-xs md:text-xl hover:bg-white hover:text-black transition-all duration-500 text-center whitespace-nowrap"
+                className="inline-block w-full md:w-auto px-4 md:px-5 py-2 md:py-2.5 rounded-[32px] border border-white/30 font-pretendard font-bold text-white text-xs md:text-base 3xl:text-lg 4xl:text-xl hover:bg-white hover:text-black transition-all duration-500 text-center whitespace-nowrap"
               >
                 레퍼런스 문의하기
               </Link>
@@ -456,14 +456,14 @@ const CaseStudyPage = () => {
           >
             <div className="overflow-hidden pb-2">
               <motion.h2
-                className="font-kulim font-bold text-white text-2xl sm:text-3xl md:text-[64px] leading-tight"
+                className="font-kulim font-bold text-white text-2xl sm:text-3xl md:text-[48px] 3xl:text-[56px] 4xl:text-[64px] leading-tight"
                 variants={textMaskVariants}
               >
                 The Project
               </motion.h2>
             </div>
             <motion.p
-              className="font-pretendard font-light text-white/70 text-sm md:text-xl leading-relaxed max-w-2xl mt-4 md:mt-6 mb-12 md:mb-20"
+              className="font-pretendard font-light text-white/70 text-sm md:text-base 3xl:text-lg 4xl:text-xl leading-relaxed max-w-2xl mt-4 md:mt-6 mb-12 md:mb-20"
               variants={fadeUpVariants}
             >
               {data.description}
@@ -525,7 +525,7 @@ const CaseStudyPage = () => {
                   <ParallaxImg src={imgs[2]} className="aspect-[4/3] md:aspect-[733/359]" />
                   <ParallaxImg src={imgs[3]} className="aspect-[4/3] md:aspect-[733/359]" />
                 </div>
-                <ParallaxImg src={imgs[4]} className="aspect-[4/3] md:aspect-[1511/774] md:max-h-[500px]" />
+                <ParallaxImg src={imgs[4]} className="aspect-[4/3] md:aspect-[1511/774] md:max-h-[500px] md:max-w-[75%] mx-auto" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <ParallaxImg src={imgs[5]} className="aspect-[4/3] md:aspect-[733/723]" />
                   <ParallaxImg src={imgs[6]} className="aspect-[4/3] md:aspect-[733/723]" />
@@ -575,13 +575,21 @@ const CaseStudyPage = () => {
                 <ParallaxImg src={imgs[5]} className="aspect-[4/3] md:aspect-[16/9] md:max-w-[75%] mx-auto" />
               </>
             )}
-            {/* 1~3장 */}
-            {imgs.length > 0 && imgs.length < 4 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                {imgs.map((src, i) => (
-                  <ParallaxImg key={i} src={src} className="aspect-[4/3] md:aspect-video" />
-                ))}
-              </div>
+            {/* 1장 */}
+            {imgs.length === 1 && (
+              <ParallaxImg src={imgs[0]} className="aspect-[4/3] md:aspect-[16/9] md:max-w-[75%] mx-auto" />
+            )}
+            {/* 2~3장 */}
+            {imgs.length >= 2 && imgs.length <= 3 && (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <ParallaxImg src={imgs[0]} className="aspect-[4/3] md:aspect-video" />
+                  <ParallaxImg src={imgs[1]} className="aspect-[4/3] md:aspect-video" />
+                </div>
+                {imgs.length === 3 && (
+                  <ParallaxImg src={imgs[2]} className="aspect-[4/3] md:aspect-[16/9] md:max-w-[75%] mx-auto" />
+                )}
+              </>
             )}
           </motion.div>
 

@@ -152,26 +152,26 @@ const WorksIntro = ({ onComplete }) => {
 
 // ── Work Items ──
 const WORK_ITEMS = [
-  { title: 'AIA', category: 'Digital experience', image: '/img/Portfolio/AIA/Screenshot%202026-02-10%20064548.png', caseUrl: '/case/aia' },
-  { title: 'KT', category: 'Digital experience', image: '/img/Portfolio/KT/Sce 1-01.png의 사본.png', caseUrl: '/case/kt' },
-  { title: 'Agent F', category: 'Digital experience', image: '/img/Portfolio/Agent%20F/0s-10s-04.png', caseUrl: '/case/agent-f' },
-  { title: 'Royal Salute', category: 'Digital experience', image: '/img/Portfolio/Royal%20Salute/Screenshot%202026-02-10%20073827.png', caseUrl: '/case/royal-salute' },
-  { title: 'Zeta Mobility', category: 'Digital experience', image: '/img/Portfolio/Zeta/Screenshot%202026-02-10%20074349.png', caseUrl: '/case/zeta-mobility' },
-  { title: 'HSBC', category: 'Digital experience', image: '/img/Portfolio/HSBC/Screenshot%202026-02-10%20070438.png', caseUrl: '/case/hsbc' },
-  { title: '프로그래머스', category: 'Digital experience', image: '/img/Portfolio/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/Screenshot%202026-02-10%20063923.png', caseUrl: '/case/programmers' },
-  { title: 'Hermes', category: 'Digital experience', image: '/img/Portfolio/hermes/1.png', caseUrl: '/case/hermes' },
-  { title: 'Kumho Tire', category: 'Digital experience', image: '/img/Portfolio/Kumho Tire/Screenshot 2026-03-13 111701.png', caseUrl: '/case/kumho-tire' },
-  { title: 'CJ 제일제당', category: 'Digital experience', image: '/img/Portfolio/CJ/Screenshot%202026-02-10%20065257.png', caseUrl: '/case/cj' },
-  { title: 'Desilo', category: 'Digital experience', image: '/img/Portfolio/Desilo/Screenshot%202026-02-10%20065716.png', caseUrl: '/case/desilo' },
-  { title: 'Takamol', category: 'Digital experience', image: '/img/Portfolio/Takamol/Screenshot%202026-02-10%20074036.png', caseUrl: '/case/takamol' },
-  { title: 'Parc', category: 'Digital experience', image: '/img/Portfolio/Parc%205/Screenshot%202026-02-10%20071031.png', caseUrl: '/case/parc' },
-  { title: 'Ecover', category: 'Digital experience', image: '/img/Portfolio/Ecover/Screenshot%202026-02-10%20074713.png', caseUrl: '/case/ecover' },
-  { title: 'Rosatis', category: 'Digital experience', image: '/img/Portfolio/Rosati/Screenshot%202026-02-10%20072923.png', caseUrl: '/case/rosatis' },
-  { title: 'Guro', category: 'Digital experience', image: '/img/Portfolio/Guro/Screenshot%202026-02-10%20070056.png', caseUrl: '/case/guro' },
-  { title: 'Stock video', category: 'Digital experience', image: 'https://images.unsplash.com/photo-1549439602-43ebca23d7e5?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/stock-video' },
-  { title: '한국주택금융공사', category: 'Digital experience', image: 'https://images.unsplash.com/photo-1610945265078-386f3b58d86f?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/khfc' },
-  { title: 'Lotte wellfood', category: 'Digital experience', image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/lotte-wellfood' },
-  { title: 'Urban break', category: 'Digital experience', image: 'https://images.unsplash.com/photo-1583121274602-3e2820c698d9?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/urban-break' },
+  { title: 'AIA', category: 'Digital experience', image: '/img/포트폴리오 썸네일/AIA.png', caseUrl: '/case/aia' },
+  { title: 'KT', category: 'Digital experience', image: '/img/포트폴리오 썸네일/KT.png', caseUrl: '/case/kt' },
+  { title: 'Agent F', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Agent F.png', caseUrl: '/case/agent-f' },
+  { title: 'Royal Salute', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Royal Salute.png', caseUrl: '/case/royal-salute' },
+  { title: 'Zeta Mobility', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Zeta Mobility.png', caseUrl: '/case/zeta-mobility' },
+  { title: 'HSBC', category: 'Digital experience', image: '/img/포트폴리오 썸네일/HSBC.png', caseUrl: '/case/hsbc' },
+  { title: '프로그래머스', category: 'Digital experience', image: '/img/포트폴리오 썸네일/프로그래머스.png', caseUrl: '/case/programmers' },
+  { title: 'Hermes', category: 'Digital experience', image: '/img/포트폴리오 썸네일/hermes.png', caseUrl: '/case/hermes' },
+  { title: 'Kumho Tire', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Kumho Tire.png', caseUrl: '/case/kumho-tire' },
+  { title: 'CJ 제일제당', category: 'Digital experience', image: '/img/포트폴리오 썸네일/CJ 제일제당.png', caseUrl: '/case/cj' },
+  { title: 'Desilo', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Desilo.png', caseUrl: '/case/desilo' },
+  { title: 'Takamol', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Takamol.png', caseUrl: '/case/takamol' },
+  { title: 'Parc', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Parc.png', caseUrl: '/case/parc' },
+  { title: 'Ecover', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Ecover.png', caseUrl: '/case/ecover' },
+  { title: 'Rosatis', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Rosati_s.png', caseUrl: '/case/rosatis' },
+  { title: 'Guro', category: 'Digital experience', image: '/img/Portfolio/Guro/Screenshot 2026-02-10 070056.png', caseUrl: '/case/guro' },
+  { title: 'CIMB Bank', category: 'Digital experience', image: '/img/Portfolio/CIMB/Screenshot 2026-02-10 064935.png', caseUrl: '/case/cimb' },
+  { title: '한국주택금융공사', category: 'Digital experience', image: '/img/Portfolio/Desilo/Screenshot 2026-02-10 065738.png', caseUrl: '/case/khfc' },
+  { title: 'Lotte wellfood', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Lotte.png', caseUrl: '/case/lotte-wellfood' },
+  { title: 'Urban break', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Urban Break.png', caseUrl: '/case/urban-break' },
 ];
 
 function chunkByPattern(items, pattern = [1, 2]) {
@@ -224,17 +224,17 @@ const headingLineReveal = {
 };
 
 // ── GridCard ──
-const GridCard = ({ title, category, image, caseUrl, variant = 'tall', index }) => {
+const GridCard = ({ title, category, image, caseUrl, index }) => {
   const ref = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   });
-  const rawY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, -60]);
   const parallaxY = useSpring(rawY, { stiffness: 80, damping: 30 });
 
-  const aspectClass = variant === 'tall' ? 'aspect-[4/3] md:aspect-[670/580]' : 'aspect-[4/3] md:aspect-[670/440]';
+  const aspectClass = 'aspect-[4/3] md:aspect-[5/4]';
   const num = String(index + 1).padStart(2, '0');
 
   return (
@@ -256,7 +256,7 @@ const GridCard = ({ title, category, image, caseUrl, variant = 'tall', index }) 
                 <motion.img
                   src={image}
                   alt={title}
-                  className="absolute inset-0 w-full h-full object-cover min-h-[120%] object-center"
+                  className="absolute inset-0 w-full h-full object-cover min-h-[120%] object-top"
                   style={{ y: parallaxY }}
                   animate={{ scale: isHovered ? 1.05 : 1 }}
                   transition={{ duration: 0.6, ease: smoothEase }}
@@ -271,7 +271,7 @@ const GridCard = ({ title, category, image, caseUrl, variant = 'tall', index }) 
                 <motion.img
                   src={image}
                   alt={title}
-                  className="absolute inset-0 w-full h-full object-cover min-h-[120%] object-center"
+                  className="absolute inset-0 w-full h-full object-cover min-h-[120%] object-top"
                   style={{ y: parallaxY }}
                 />
               </div>
@@ -319,21 +319,6 @@ const GridCard = ({ title, category, image, caseUrl, variant = 'tall', index }) 
         {category}
       </motion.p>
 
-      {/* 호버 도트 */}
-      <motion.div className="flex gap-1.5 md:gap-2 pl-6 md:pl-10" initial={false}>
-        <motion.span
-          className="w-[10px] h-[10px] md:w-[14px] md:h-[14px] rounded-full bg-[#ee2c41] shrink-0"
-          aria-hidden
-          animate={{ x: isHovered ? -4 : 0, scale: isHovered ? 1.2 : 1 }}
-          transition={{ type: 'spring', stiffness: 420, damping: 14 }}
-        />
-        <motion.span
-          className="w-[10px] h-[10px] md:w-[14px] md:h-[14px] rounded-full bg-[#ee2c41] shrink-0"
-          aria-hidden
-          animate={{ x: isHovered ? 4 : 0, scale: isHovered ? 1.2 : 1 }}
-          transition={{ type: 'spring', stiffness: 420, damping: 14, delay: 0.04 }}
-        />
-      </motion.div>
     </motion.article>
   );
 };
@@ -346,7 +331,7 @@ const FeaturedCard = ({ title, category, image, caseUrl, index }) => {
     target: ref,
     offset: ['start end', 'end start'],
   });
-  const rawY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const parallaxY = useSpring(rawY, { stiffness: 80, damping: 30 });
   const num = String(index + 1).padStart(2, '0');
 
@@ -356,11 +341,11 @@ const FeaturedCard = ({ title, category, image, caseUrl, index }) => {
       ref={ref}
       variants={clipReveal}
     >
-      <div className="aspect-[4/3] md:aspect-[21/9]">
+      <div className={`aspect-[4/3] ${index === 0 ? 'md:aspect-[16/9]' : 'md:aspect-[16/9]'}`}>
         <motion.img
           src={image}
           alt={title}
-          className="absolute inset-0 w-full h-full object-cover min-h-[120%] object-center"
+          className="absolute inset-0 w-full h-full object-cover min-h-[120%] object-top"
           style={{ y: parallaxY }}
           animate={{ scale: isHovered ? 1.04 : 1 }}
           transition={{ duration: 0.6, ease: smoothEase }}
@@ -376,20 +361,6 @@ const FeaturedCard = ({ title, category, image, caseUrl, index }) => {
           <p className="font-pretendard font-extralight text-white/60 text-[11px] md:text-sm leading-tight mb-2 md:mb-3 pl-6 md:pl-10">
             {category}
           </p>
-          <motion.div className="flex gap-1.5 md:gap-2 pl-6 md:pl-10" initial={false}>
-            <motion.span
-              className="w-[10px] h-[10px] md:w-[14px] md:h-[14px] rounded-full bg-[#ee2c41] shrink-0"
-              aria-hidden
-              animate={{ x: isHovered ? -4 : 0, scale: isHovered ? 1.2 : 1 }}
-              transition={{ type: 'spring', stiffness: 420, damping: 14 }}
-            />
-            <motion.span
-              className="w-[10px] h-[10px] md:w-[14px] md:h-[14px] rounded-full bg-[#ee2c41] shrink-0"
-              aria-hidden
-              animate={{ x: isHovered ? 4 : 0, scale: isHovered ? 1.2 : 1 }}
-              transition={{ type: 'spring', stiffness: 420, damping: 14, delay: 0.04 }}
-            />
-          </motion.div>
         </div>
       </div>
     </motion.div>
@@ -426,7 +397,7 @@ const WorksPage = () => {
       </AnimatePresence>
 
       <main className="bg-white text-black min-h-screen font-kulim">
-        <div className="w-full max-w-[1920px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-20 md:pt-32 pb-20 md:pb-40">
+        <div className="w-full max-w-[1100px] 3xl:max-w-[1300px] 4xl:max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-20 md:pt-32 pb-20 md:pb-40">
           {/* 헤딩 마스크 리빌 */}
           <motion.div
             className="mb-10 md:mb-28"
@@ -455,17 +426,29 @@ const WorksPage = () => {
               return (
                 <React.Fragment key={rowIndex}>
 {row.length === 1 ? (
-                    <section className="w-full max-w-full md:max-w-[90%] lg:max-w-[88%] mx-auto">
-                      <FeaturedCard
-                        title={row[0].title}
-                        category={row[0].category}
-                        image={row[0].image}
-                        caseUrl={row[0].caseUrl}
-                        index={cumIndex}
-                      />
-                    </section>
+                    <div className="relative">
+                      <section className={`w-full mx-auto ${cumIndex === 0 ? 'max-w-full' : 'max-w-full md:max-w-[78%] lg:max-w-[75%]'}`}>
+                        <FeaturedCard
+                          title={row[0].title}
+                          category={row[0].category}
+                          image={row[0].image}
+                          caseUrl={row[0].caseUrl}
+                          index={cumIndex}
+                        />
+                      </section>
+                      {cumIndex !== 0 && (
+                        <>
+                          <motion.div className="hidden md:block absolute bottom-0 left-0" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}>
+                            <svg width="60" height="16" viewBox="0 0 90 24" fill="none"><path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                          </motion.div>
+                          <motion.div className="hidden md:block absolute bottom-0 right-0" initial={{ x: 100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}>
+                            <svg width="60" height="16" viewBox="0 0 90 24" fill="none"><path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                          </motion.div>
+                        </>
+                      )}
+                    </div>
                   ) : (
-                    <section className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-12 items-end">
+                    <section className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-40 items-end max-w-full">
                       {row.map((item, idx) => (
                         <GridCard
                           key={item.title}
@@ -473,7 +456,6 @@ const WorksPage = () => {
                           category={item.category}
                           image={item.image}
                           caseUrl={item.caseUrl}
-                          variant={idx === 0 ? 'tall' : 'wide'}
                           index={cumIndex + idx}
                         />
                       ))}

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const BUDGET_OPTIONS = [
   'Below $5,000',
@@ -189,12 +189,6 @@ const ContactUs = () => {
   // 파일은 별도 state로 관리 (DataTransfer로 file input에 동기화)
   const [files, setFiles] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const { scrollYProgress } = useScroll({
-    target: rightRef,
-    offset: ['start end', 'end start'],
-  });
-  const imageY = useTransform(scrollYProgress, [0, 0.5, 1], [30, 0, -30]);
 
   // files state가 바뀔 때마다 실제 file input에 동기화
   useEffect(() => {
@@ -483,7 +477,7 @@ const ContactUs = () => {
               <br />
               with you.
             </motion.p>
-            <div className="flex gap-2 mb-6">
+            <div className="relative z-10 flex gap-0.5 -mb-1">
               <motion.div
                 className="w-4 h-4 rounded-full bg-black"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -496,15 +490,26 @@ const ContactUs = () => {
               />
             </div>
             <motion.div
-              className="relative w-full flex-1 min-h-[200px] aspect-auto overflow-hidden"
+              className="w-full flex flex-col justify-end flex-1"
               variants={rightItemVariants}
             >
-              <motion.img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
-                alt="Collaboration"
-                className="absolute inset-0 w-full h-full object-cover object-center"
-                style={{ y: imageY }}
+              <img
+                src="/img/contact_us.png"
+                alt="Contact Us"
+                className="w-full h-auto object-contain mb-[6.5rem] md:mb-[7.5rem]"
               />
+              <div className="flex justify-end mb-8">
+                <motion.div
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: '-100px' }}
+                  transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
+                >
+                  <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black">
+                    <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </motion.div>
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>

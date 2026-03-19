@@ -5,20 +5,26 @@ import { motion } from 'framer-motion';
 const Works = () => {
   const navigate = useNavigate();
   const works = [
-    { title: 'AIA', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/Portfolio/AIA/Screenshot 2026-02-10 064548.png', caseUrl: '/case/aia' },
-    { title: 'KT', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/Portfolio/KT/Sce 1-01.png의 사본.png', caseUrl: '/case/kt' },
-    { title: 'Agent F', desc: 'Digital Experience', color: 'bg-black', image: 'https://images.unsplash.com/photo-1610945265078-386f3b58d86f?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/agent-f' },
-    { title: 'Royal Salute', desc: 'Brand Identity', color: 'bg-[#1907b7]', image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/royal-salute' },
-    { title: 'Zeta Mobility', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: 'https://images.unsplash.com/photo-1583121274602-3e2820c698d9?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/zeta-mobility' },
-    { title: 'HSBC', desc: 'Digital Experience', color: 'bg-black', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/hsbc' },
-    { title: '프로그래머스', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: 'https://images.unsplash.com/photo-1549439602-43ebca23d7e5?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/programmers' },
-    { title: 'Hermes', desc: 'Event Campaign', color: 'bg-[#ef283f]', image: 'https://images.unsplash.com/photo-1610945265078-386f3b58d86f?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/hermes' },
-    { title: 'Kumho Tire', desc: 'Website Renewal', color: 'bg-black', image: '/img/Portfolio/Kumho Tire/Screenshot 2026-03-13 111701.png', caseUrl: '/case/kumho-tire' },
-    { title: 'CJ 제일제당', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/Portfolio/CJ/Screenshot 2026-02-10 065257.png', caseUrl: '/case/cj' },
-    { title: 'Desilo', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/desilo' },
-    { title: 'Takamol', desc: 'Digital Experience', color: 'bg-black', image: 'https://images.unsplash.com/photo-1549439602-43ebca23d7e5?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/takamol' },
-    { title: 'Parc', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: 'https://images.unsplash.com/photo-1610945265078-386f3b58d86f?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/parc' },
-    { title: 'Lotte wellfood', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop', caseUrl: '/case/lotte-wellfood' },
+    { title: 'AIA', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/AIA.png', caseUrl: '/case/aia' },
+    { title: 'KT', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/KT.png', caseUrl: '/case/kt' },
+    { title: 'Agent F', desc: 'Digital Experience', color: 'bg-black', image: '/img/포트폴리오 썸네일/Agent F.png', caseUrl: '/case/agent-f' },
+    { title: 'Royal Salute', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/Royal Salute.png', caseUrl: '/case/royal-salute' },
+    { title: 'Zeta Mobility', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/Zeta Mobility.png', caseUrl: '/case/zeta-mobility' },
+    { title: 'HSBC', desc: 'Digital Experience', color: 'bg-black', image: '/img/포트폴리오 썸네일/HSBC.png', caseUrl: '/case/hsbc' },
+    { title: '프로그래머스', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/프로그래머스.png', caseUrl: '/case/programmers' },
+    { title: 'Hermes', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/hermes.png', caseUrl: '/case/hermes' },
+    { title: 'Kumho Tire', desc: 'Digital Experience', color: 'bg-black', image: '/img/포트폴리오 썸네일/Kumho Tire.png', caseUrl: '/case/kumho-tire' },
+    { title: 'CJ 제일제당', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/CJ 제일제당.png', caseUrl: '/case/cj' },
+    { title: 'Desilo', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/Desilo.png', caseUrl: '/case/desilo' },
+    { title: 'Takamol', desc: 'Digital Experience', color: 'bg-black', image: '/img/포트폴리오 썸네일/Takamol.png', caseUrl: '/case/takamol' },
+    { title: 'Parc', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/Parc.png', caseUrl: '/case/parc' },
+    { title: 'Ecover', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/Ecover.png', caseUrl: '/case/ecover' },
+    { title: 'Rosatis', desc: 'Digital Experience', color: 'bg-black', image: '/img/포트폴리오 썸네일/Rosati_s.png', caseUrl: '/case/rosatis' },
+    { title: 'Guro', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/Portfolio/Guro/Screenshot 2026-02-10 070056.png', caseUrl: '/case/guro' },
+    { title: 'CIMB Bank', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/Portfolio/CIMB/Screenshot 2026-02-10 064935.png', caseUrl: '/case/cimb' },
+    { title: '한국주택금융공사', desc: 'Digital Experience', color: 'bg-black', image: '/img/Portfolio/Desilo/Screenshot 2026-02-10 065738.png', caseUrl: '/case/khfc' },
+    { title: 'Lotte wellfood', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/Lotte.png', caseUrl: '/case/lotte-wellfood' },
+    { title: 'Urban break', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/Urban Break.png', caseUrl: '/case/urban-break' },
   ];
   const infiniteWorks = Array(20).fill(works).flat();
 
@@ -39,7 +45,7 @@ const Works = () => {
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
 
-  const CARD_WIDTH_DESKTOP = is4xl ? 740 : is3xl ? 680 : 540;
+  const CARD_WIDTH_DESKTOP = is4xl ? 740 : is3xl ? 560 : 540;
 
   const ITEMS_PER_MOVE = isMobile ? 1 : 2;
   const [isHovered, setIsHovered] = useState(false);
@@ -125,7 +131,7 @@ const Works = () => {
 
   return (
     <section id="works" className="py-32 bg-gray-50 overflow-hidden font-kulim">
-      <div className="w-full h-[480px] 3xl:h-[600px] 4xl:h-[660px] flex items-center" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <div className="w-full h-[480px] 3xl:h-[480px] 4xl:h-[660px] flex items-center" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         <motion.div className="flex" style={{ gap: GAP }} animate={{ x: desktopX }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
           {infiniteWorks.map((work, i) => (
             <div
@@ -134,30 +140,32 @@ const Works = () => {
               tabIndex={0}
               onClick={() => work.caseUrl && navigate(work.caseUrl)}
               onKeyDown={(e) => work.caseUrl && (e.key === 'Enter' || e.key === ' ') && navigate(work.caseUrl)}
-              className="relative flex-none h-[400px] 3xl:h-[520px] 4xl:h-[580px] group shadow-lg cursor-pointer"
+              className="relative flex-none h-[400px] 3xl:h-[420px] 4xl:h-[580px] group shadow-lg cursor-pointer"
               style={{ width: CARD_WIDTH_DESKTOP, borderRadius: 0, perspective: '1000px' }}
             >
               <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] overflow-hidden bg-white">
-                  <img src={work.image} alt={work.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700" />
-                  <div className="absolute inset-0 p-10 flex flex-col justify-between">
-                    <div className="border-b border-white/30 pb-4">
-                      <h3 className="text-4xl 3xl:text-5xl 4xl:text-6xl font-bold text-white mb-2">{work.title}</h3>
-                    </div>
-                    <div className="flex justify-between items-end">
-                      <span className="text-white/80 text-lg 4xl:text-2xl uppercase tracking-wider">{work.desc}</span>
-                    </div>
+                {/* Front face — image-dominant */}
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] overflow-hidden bg-black">
+                  <img src={work.image} alt={work.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 p-10 4xl:p-14 flex flex-col justify-end">
+                    <h3 className="text-5xl 3xl:text-6xl 4xl:text-7xl font-bold text-white leading-tight tracking-tight">{work.title}</h3>
+                    <span className="text-white/50 text-xs 4xl:text-sm uppercase tracking-[0.2em] mt-3">{work.desc}</span>
                   </div>
-                  <div className="absolute bottom-10 right-10">
-                    <span className="bg-white/20 text-white px-4 py-2 text-sm backdrop-blur-sm">View Case</span>
+                  <div className="absolute top-8 right-8 4xl:top-10 4xl:right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <span className="w-10 h-10 4xl:w-12 4xl:h-12 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-sm">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
                   </div>
                 </div>
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden bg-black">
-                  <img src={work.image} alt={work.title} className="absolute inset-0 w-full h-full object-cover opacity-80" />
-                  <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center p-10 text-center">
-                    <h3 className="text-5xl 3xl:text-6xl 4xl:text-6xl font-bold text-white mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">{work.title}</h3>
-                    <p className="text-white/80 text-xl 3xl:text-2xl 4xl:text-2xl tracking-wider mb-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">{work.desc}</p>
-                    <button onClick={(e) => { e.stopPropagation(); work.caseUrl && navigate(work.caseUrl); }} className="bg-white text-black px-8 py-3 font-bold hover:bg-gray-200 transition-colors translate-y-4 group-hover:translate-y-0 duration-500 delay-200">View Case</button>
+                {/* Back face — dark, content-focused */}
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden bg-[#0a0a0a]">
+                  <img src={work.image} alt={work.title} className="absolute inset-0 w-full h-full object-cover opacity-15 blur-sm scale-110" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-10 4xl:p-14 text-center">
+                    <span className="text-white/40 text-xs 4xl:text-sm uppercase tracking-[0.25em] mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Case Study</span>
+                    <h3 className="text-5xl 3xl:text-6xl 4xl:text-7xl font-bold text-white leading-tight tracking-tight mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">{work.title}</h3>
+                    <p className="text-white/50 text-sm 3xl:text-base 4xl:text-lg tracking-wider mb-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">{work.desc}</p>
+                    <button onClick={(e) => { e.stopPropagation(); work.caseUrl && navigate(work.caseUrl); }} className="border border-white/20 text-white px-10 py-3.5 text-sm 4xl:text-base tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 translate-y-4 group-hover:translate-y-0 delay-200">View Case</button>
                   </div>
                 </div>
               </div>
@@ -165,15 +173,17 @@ const Works = () => {
           ))}
         </motion.div>
       </div>
-      <div className="flex justify-center mt-8 space-x-3">
-        <div className="flex items-center gap-2">
+      <div className="flex justify-center mt-10 4xl:mt-14">
+        <div className="flex items-center gap-1.5">
           {Array.from({ length: Math.ceil(works.length / 2) }).map((_, pageI) => {
             const isActive = Math.floor((index % works.length) / 2) === pageI;
             return (
-              <div key={pageI} className="flex gap-0.5">
-                <div className={`h-1 transition-all duration-300 ${isActive ? 'w-12 bg-[#1907b7]' : 'w-4 bg-gray-300'}`} />
-                <div className={`h-1 transition-all duration-300 ${isActive ? 'w-12 bg-[#1907b7]' : 'w-4 bg-gray-300'}`} />
-              </div>
+              <button
+                key={pageI}
+                onClick={() => setIndex(pageI * 2)}
+                className={`h-[2px] transition-all duration-500 ease-out cursor-pointer ${isActive ? 'w-10 bg-black/60' : 'w-3 bg-black/10 hover:bg-black/20'}`}
+                aria-label={`Go to page ${pageI + 1}`}
+              />
             );
           })}
         </div>
