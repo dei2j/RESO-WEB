@@ -140,33 +140,57 @@ const Works = () => {
               tabIndex={0}
               onClick={() => work.caseUrl && navigate(work.caseUrl)}
               onKeyDown={(e) => work.caseUrl && (e.key === 'Enter' || e.key === ' ') && navigate(work.caseUrl)}
-              className="relative flex-none h-[400px] 3xl:h-[420px] 4xl:h-[580px] group shadow-lg cursor-pointer"
-              style={{ width: CARD_WIDTH_DESKTOP, borderRadius: 0, perspective: '1000px' }}
+              className="relative flex-none h-[400px] 3xl:h-[420px] 4xl:h-[580px] group overflow-hidden cursor-pointer shadow-sm"
+              style={{ width: CARD_WIDTH_DESKTOP }}
             >
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                {/* Front face — image-dominant */}
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] overflow-hidden bg-black">
-                  <img src={work.image} alt={work.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute inset-0 p-10 4xl:p-14 flex flex-col justify-end">
-                    <h3 className="text-5xl 3xl:text-6xl 4xl:text-7xl font-bold text-white leading-tight tracking-tight">{work.title}</h3>
-                    <span className="text-white/50 text-xs 4xl:text-sm uppercase tracking-[0.2em] mt-3">{work.desc}</span>
-                  </div>
-                  <div className="absolute top-8 right-8 4xl:top-10 4xl:right-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="w-10 h-10 4xl:w-12 4xl:h-12 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-sm">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </span>
-                  </div>
+              {/* 배경 이미지: 호버 시 확대 + 어두워짐 */}
+              <div className="absolute inset-0 w-full h-full bg-black">
+                <img
+                  src={work.image}
+                  alt={work.title}
+                  className="w-full h-full object-cover transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:opacity-40"
+                />
+              </div>
+
+              {/* 기본 상태: 상시 노출 타이틀 */}
+              <div className="absolute inset-0 p-10 4xl:p-16 flex flex-col justify-between z-10">
+                <div className="relative">
+                  <h3 className="text-4xl 3xl:text-5xl 4xl:text-7xl font-bold text-white transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2">
+                    {work.title}
+                  </h3>
+                  <div className="w-0 group-hover:w-20 h-[2px] bg-[#ef283f] transition-all duration-700 delay-100 mt-4" />
                 </div>
-                {/* Back face — dark, content-focused */}
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden bg-[#0a0a0a]">
-                  <img src={work.image} alt={work.title} className="absolute inset-0 w-full h-full object-cover opacity-15 blur-sm scale-110" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-10 4xl:p-14 text-center">
-                    <span className="text-white/40 text-xs 4xl:text-sm uppercase tracking-[0.25em] mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Case Study</span>
-                    <h3 className="text-5xl 3xl:text-6xl 4xl:text-7xl font-bold text-white leading-tight tracking-tight mb-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">{work.title}</h3>
-                    <p className="text-white/50 text-sm 3xl:text-base 4xl:text-lg tracking-wider mb-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">{work.desc}</p>
-                    <button onClick={(e) => { e.stopPropagation(); work.caseUrl && navigate(work.caseUrl); }} className="border border-white/20 text-white px-10 py-3.5 text-sm 4xl:text-base tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 translate-y-4 group-hover:translate-y-0 delay-200">View Case</button>
+
+                <div className="flex justify-between items-end">
+                  <span className="text-white/60 text-lg 4xl:text-2xl uppercase tracking-widest transition-opacity duration-500 group-hover:opacity-0">
+                    {work.desc}
+                  </span>
+                </div>
+              </div>
+
+              {/* 호버 시 올라오는 상세 정보 오버레이 */}
+              <div className="absolute inset-0 flex flex-col justify-end p-10 4xl:p-16 bg-gradient-to-t from-black/80 via-transparent to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-20">
+                <div className="space-y-6 4xl:space-y-10">
+                  <div className="overflow-hidden">
+                    <p className="text-white/90 text-xl 4xl:text-3xl font-light leading-relaxed translate-y-10 group-hover:translate-y-0 transition-transform duration-700 delay-100">
+                      Digital Experience <br />
+                      <span className="text-sm 4xl:text-xl text-white/50 uppercase tracking-wider">Strategic Branding & Development</span>
+                    </p>
                   </div>
+
+                  <button
+                    onClick={(e) => { e.stopPropagation(); work.caseUrl && navigate(work.caseUrl); }}
+                    className="inline-flex items-center gap-4 text-white group/btn translate-y-10 group-hover:translate-y-0 transition-transform duration-700 delay-200"
+                  >
+                    <span className="text-lg 4xl:text-2xl font-bold border-b-2 border-white pb-1 group-hover/btn:border-[#ef283f] transition-colors">
+                      View Case
+                    </span>
+                    <div className="w-10 h-10 4xl:w-14 4xl:h-14 rounded-full border border-white/30 flex items-center justify-center group-hover/btn:bg-[#ef283f] group-hover/btn:border-[#ef283f] transition-all">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="4xl:scale-125">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>

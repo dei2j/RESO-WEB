@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 
 // ── 랜딩 인트로에 사용할 로고 10개 ──
@@ -172,6 +172,8 @@ const WORK_ITEMS = [
   { title: '한국주택금융공사', category: 'Digital experience', image: '/img/Portfolio/Desilo/Screenshot 2026-02-10 065738.png', caseUrl: '/case/khfc' },
   { title: 'Lotte wellfood', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Lotte.png', caseUrl: '/case/lotte-wellfood' },
   { title: 'Urban break', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Urban Break.png', caseUrl: '/case/urban-break' },
+  { title: '들고가유', category: 'Digital experience', image: '/img/포트폴리오 썸네일/들고가유.png', caseUrl: '/case/deulgogayu' },
+  { title: 'Lolpago', category: 'Digital experience', image: '/img/포트폴리오 썸네일/롤파고.png', caseUrl: '/case/lolpago' },
 ];
 
 function chunkByPattern(items, pattern = [1, 2]) {
@@ -211,15 +213,6 @@ const headingReveal = {
   visible: {
     clipPath: 'inset(0 0% 0 0)',
     transition: { duration: 1, ease: smoothEase, delay: 0.2 },
-  },
-};
-
-const headingLineReveal = {
-  hidden: { scaleX: 0, opacity: 0 },
-  visible: {
-    scaleX: 1,
-    opacity: 1,
-    transition: { duration: 0.8, ease: smoothEase, delay: 0.6 },
   },
 };
 
@@ -381,8 +374,88 @@ const FeaturedCard = ({ title, category, image, caseUrl, index }) => {
   );
 };
 
+// ── '사라락' reveal variants ──
+const softRevealVariants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+    filter: 'blur(8px)',
+    clipPath: 'inset(10% 0% 10% 0%)',
+  },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    clipPath: 'inset(0% 0% 0% 0%)',
+    transition: {
+      duration: 1.2,
+      ease: smoothEase,
+      delay: (i % 4) * 0.1,
+    },
+  }),
+};
+
+// ── ArchiveCard (compact grid card) ──
+const ArchiveCard = ({ title, image, caseUrl, index }) => {
+  const navigate = useNavigate();
+  const num = String(index + 1).padStart(2, '0');
+
+  return (
+    <motion.div
+      custom={index}
+      variants={softRevealVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-50px' }}
+      role="button"
+      tabIndex={0}
+      onClick={() => { if (caseUrl) { window.__fromWorksToCase = true; navigate(caseUrl); } }}
+      onKeyDown={(e) => { if (caseUrl && (e.key === 'Enter' || e.key === ' ')) { window.__fromWorksToCase = true; navigate(caseUrl); } }}
+      className="relative aspect-[4/3] overflow-hidden group cursor-pointer bg-gray-100"
+    >
+      {/* 이미지: 호버 시 미세 확대 */}
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+      />
+
+      {/* 호버 그라디언트 오버레이: 하단 강화 */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+
+      {/* 인덱스 번호 */}
+      <span className="absolute top-4 left-4 3xl:top-5 3xl:left-5 text-white/0 group-hover:text-white/50 text-xs 3xl:text-sm font-light tracking-wider transition-all duration-500 delay-75 z-20">
+        {num}
+      </span>
+
+      {/* 콘텐츠: 스르륵 페이드 */}
+      <div className="absolute inset-x-0 bottom-0 p-5 3xl:p-6 4xl:p-8 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]">
+        {/* 레드 포인트 바 */}
+        <div className="w-10 h-[2px] bg-[#ef283f] mb-3 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+
+        <div className="space-y-1">
+          <h4 className="text-lg md:text-xl 3xl:text-2xl 4xl:text-3xl font-bold italic text-white uppercase">
+            {title}
+          </h4>
+          <p className="text-white/60 text-[10px] md:text-xs 3xl:text-sm tracking-widest uppercase">
+            Digital Experience
+          </p>
+        </div>
+      </div>
+
+      {/* 화살표 */}
+      <div className="absolute top-4 right-4 3xl:top-5 3xl:right-5 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 scale-75 group-hover:scale-100 z-20">
+        <div className="w-8 h-8 3xl:w-9 3xl:h-9 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-sm">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const WorksPage = () => {
   const rows = useMemo(() => chunkByPattern(WORK_ITEMS), []);
+  const [activeTab, setActiveTab] = useState('featured');
   // 케이스 스터디에서 돌아온 경우(뒤로가기 or Back to list) 스킵
   const skipIntro = !!window.__fromWorksToCase;
   const [introDone, setIntroByDone] = useState(skipIntro);
@@ -397,10 +470,10 @@ const WorksPage = () => {
       </AnimatePresence>
 
       <main className="bg-white text-black min-h-screen font-kulim">
-        <div className="w-full max-w-[1100px] 3xl:max-w-[1300px] 4xl:max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-20 md:pt-32 pb-20 md:pb-40">
+        <div className="w-full max-w-[1100px] 3xl:max-w-[1300px] 4xl:max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-20 md:pt-32">
           {/* 헤딩 마스크 리빌 */}
           <motion.div
-            className="mb-10 md:mb-28"
+            className="mb-8 md:mb-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -411,60 +484,116 @@ const WorksPage = () => {
             >
               Our Works
             </motion.h1>
-            <motion.div
-              variants={headingLineReveal}
-              className="h-px bg-[#1907b7]/20 mt-4 md:mt-6 origin-left"
-            />
           </motion.div>
 
-          <div className="space-y-16 md:space-y-40">
-            {rows.map((row, rowIndex) => {
-              // 누적 인덱스 계산
-              let cumIndex = 0;
-              for (let r = 0; r < rowIndex; r++) cumIndex += rows[r].length;
-
-              return (
-                <React.Fragment key={rowIndex}>
-{row.length === 1 ? (
-                    <div className="relative">
-                      <section className={`w-full mx-auto ${cumIndex === 0 ? 'max-w-full' : 'max-w-full md:max-w-[78%] lg:max-w-[75%]'}`}>
-                        <FeaturedCard
-                          title={row[0].title}
-                          category={row[0].category}
-                          image={row[0].image}
-                          caseUrl={row[0].caseUrl}
-                          index={cumIndex}
-                        />
-                      </section>
-                      {cumIndex !== 0 && (
-                        <>
-                          <motion.div className="hidden md:block absolute bottom-0 left-0" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}>
-                            <svg width="60" height="16" viewBox="0 0 90 24" fill="none"><path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                          </motion.div>
-                          <motion.div className="hidden md:block absolute bottom-0 right-0" initial={{ x: 100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}>
-                            <svg width="60" height="16" viewBox="0 0 90 24" fill="none"><path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                          </motion.div>
-                        </>
-                      )}
-                    </div>
-                  ) : (
-                    <section className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-40 items-end max-w-full">
-                      {row.map((item, idx) => (
-                        <GridCard
-                          key={item.title}
-                          title={item.title}
-                          category={item.category}
-                          image={item.image}
-                          caseUrl={item.caseUrl}
-                          index={cumIndex + idx}
-                        />
-                      ))}
-                    </section>
-                  )}
-                </React.Fragment>
-              );
-            })}
+          {/* 탭 */}
+          <div className="flex gap-10 md:gap-12 border-b border-gray-100 mb-14 md:mb-24">
+            {['featured', 'archive'].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className="relative pb-4 group"
+              >
+                <span className={`text-xs md:text-sm uppercase tracking-[0.3em] transition-colors duration-300 ${
+                  activeTab === tab ? 'text-[#1907b7] font-bold' : 'text-gray-400 group-hover:text-gray-600'
+                }`}>
+                  {tab}
+                </span>
+                {activeTab === tab && (
+                  <motion.div
+                    layoutId="works-tab-line"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#1907b7]"
+                    transition={{ duration: 0.4, ease: smoothEase }}
+                  />
+                )}
+              </button>
+            ))}
           </div>
+        </div>
+
+        {/* 탭 컨텐츠 */}
+        <div className="pb-20 md:pb-40">
+          <AnimatePresence mode="wait">
+            {activeTab === 'featured' ? (
+              <motion.div
+                key="featured"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.6, ease: smoothEase }}
+                className="w-full max-w-[1100px] 3xl:max-w-[1300px] 4xl:max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16"
+              >
+                <div className="space-y-16 md:space-y-40">
+                  {rows.map((row, rowIndex) => {
+                    let cumIndex = 0;
+                    for (let r = 0; r < rowIndex; r++) cumIndex += rows[r].length;
+
+                    return (
+                      <React.Fragment key={rowIndex}>
+                        {row.length === 1 ? (
+                          <div className="relative">
+                            <section className={`w-full mx-auto ${cumIndex === 0 ? 'max-w-full' : 'max-w-full md:max-w-[78%] lg:max-w-[75%]'}`}>
+                              <FeaturedCard
+                                title={row[0].title}
+                                category={row[0].category}
+                                image={row[0].image}
+                                caseUrl={row[0].caseUrl}
+                                index={cumIndex}
+                              />
+                            </section>
+                            {cumIndex !== 0 && (
+                              <>
+                                <motion.div className="hidden md:block absolute bottom-0 left-0" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}>
+                                  <svg width="60" height="16" viewBox="0 0 90 24" fill="none"><path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                </motion.div>
+                                <motion.div className="hidden md:block absolute bottom-0 right-0" initial={{ x: 100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}>
+                                  <svg width="60" height="16" viewBox="0 0 90 24" fill="none"><path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                </motion.div>
+                              </>
+                            )}
+                          </div>
+                        ) : (
+                          <section className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-40 items-end max-w-full">
+                            {row.map((item, idx) => (
+                              <GridCard
+                                key={item.title}
+                                title={item.title}
+                                category={item.category}
+                                image={item.image}
+                                caseUrl={item.caseUrl}
+                                index={cumIndex + idx}
+                              />
+                            ))}
+                          </section>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="archive"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: smoothEase }}
+                className="w-full max-w-[1100px] 3xl:max-w-[1300px] 4xl:max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16"
+              >
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                  {WORK_ITEMS.map((item, idx) => (
+                    <ArchiveCard
+                      key={item.title}
+                      title={item.title}
+                      image={item.image}
+                      caseUrl={item.caseUrl}
+                      index={idx}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </main>
     </>
