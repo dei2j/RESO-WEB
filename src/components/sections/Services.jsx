@@ -3,10 +3,13 @@ import { motion, useMotionValue, useAnimationFrame, wrap } from 'framer-motion';
 
 const Services = () => {
   const services = [
-    { id: '01', title: 'Motion Graphics', image: '/img/homePage/Motion.png' },
-    { id: '02', title: 'UI/UX', image: '/img/homePage/UI UX.png' },
-    { id: '03', title: 'Graphic Design', image: '/img/homePage/graphics.png' },
-    { id: '04', title: 'App Development', image: '/img/homePage/App.png' },
+    { id: '01', title: 'Motion Graphics', video: '/video/home_list/Motion_v3.mp4' },
+    { id: '02', title: 'UI/UX', video: '/video/home_list/UIUX_v3.mp4' },
+    { id: '03', title: 'Graphic Design', video: '/video/home_list/Graphic_v3.mp4' },
+    { id: '04', title: 'App Development', video: '/video/home_list/App_v2.mp4' },
+    { id: '05', title: 'ERP', video: '/video/home_list/ERP_v2.mp4' },
+    { id: '06', title: 'System Development', video: '/video/home_list/System developement_v1.mp4' },
+    { id: '07', title: 'AI/AX', video: '/video/home_list/AI AX_v2.mp4' },
   ];
   const infiniteServices = Array(20).fill(services).flat();
 
@@ -82,12 +85,13 @@ const Services = () => {
                     <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white text-sm font-light">{service.id}</div>
                   </div>
                   <div className="relative w-full flex-1 overflow-hidden mt-2">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-contain object-bottom pointer-events-none"
-                      style={{ imageRendering: '-webkit-optimize-contrast', backfaceVisibility: 'hidden' }}
-                      loading="eager"
+                    <video
+                      src={service.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover pointer-events-none"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
@@ -124,8 +128,8 @@ const Services = () => {
           onDragEnd={() => { setTimeout(() => { isDragging.current = false; }, 300); }}
         >
           {infiniteServices.map((service, index) => (
-            <div key={`${service.id}-${index}`} ref={index === 0 ? itemRef : null} className="relative w-[420px] 3xl:w-[520px] 4xl:w-[600px] h-[440px] 3xl:h-[540px] 4xl:h-[620px] bg-black p-6 3xl:p-8 4xl:p-10 flex flex-col justify-between shrink-0 border border-black group select-none pointer-events-none" style={{ contain: 'layout' }}>
-              <div className="flex justify-between items-start z-10">
+            <div key={`${service.id}-${index}`} ref={index === 0 ? itemRef : null} className="relative w-[380px] 3xl:w-[470px] 4xl:w-[600px] h-[470px] 3xl:h-[560px] 4xl:h-[720px] bg-black p-6 3xl:p-8 4xl:p-10 flex flex-col justify-between shrink-0 border border-black group select-none pointer-events-none" style={{ contain: 'layout' }}>
+              <div className="flex justify-between items-start z-10 h-[130px] 3xl:h-[155px] 4xl:h-[200px]">
                 <h3 className="text-5xl 3xl:text-6xl 4xl:text-7xl font-bold text-white leading-tight">
                   {service.title.split(' ').map((word, i) => (
                     <span key={i} className="block">{word}</span>
@@ -133,13 +137,14 @@ const Services = () => {
                 </h3>
                 <div className="w-12 h-12 4xl:w-16 4xl:h-16 rounded-full border border-white/40 flex items-center justify-center text-white text-base 4xl:text-xl font-light">{service.id}</div>
               </div>
-              <div className="relative w-full flex-1 overflow-hidden mt-2">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-contain object-bottom transition-transform duration-500 group-hover:scale-105 pointer-events-none"
-                  style={{ imageRendering: '-webkit-optimize-contrast', backfaceVisibility: 'hidden' }}
-                  loading="eager"
+              <div className="relative w-full flex-1 overflow-hidden">
+                <video
+                  src={service.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>

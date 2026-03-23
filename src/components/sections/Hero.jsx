@@ -31,7 +31,7 @@ const Hero = () => {
       </div>
 
       {/* 원 + 화살표 */}
-      <div className="absolute bottom-[22%] md:bottom-[26%] left-[6%] md:left-[10%] z-10 pointer-events-none flex items-center gap-3">
+      <div className="absolute bottom-[18%] md:bottom-[22%] left-[6%] md:left-[10%] z-10 pointer-events-none flex items-center gap-3">
         <motion.div
           className="w-4 h-4 md:w-5 md:h-5 4xl:w-7 4xl:h-7 rounded-full bg-white/70"
           initial={{ scale: 0, opacity: 0 }}
@@ -53,7 +53,7 @@ const Hero = () => {
         </motion.svg>
       </div>
 
-      <div className="absolute bottom-[18%] md:bottom-[28%] right-[6%] md:right-[10%] z-10 text-right pointer-events-none">
+      <div className="absolute bottom-[14%] md:bottom-[24%] right-[6%] md:right-[10%] z-10 text-right pointer-events-none">
         <motion.h2
           className="text-[36px] md:text-[72px] 3xl:text-[90px] 4xl:text-[100px] font-bold text-white/70 leading-[1.1] drop-shadow-lg"
           initial={{ opacity: 0, y: 60 }}
