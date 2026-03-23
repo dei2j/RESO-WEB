@@ -104,7 +104,7 @@ const Testimonials = () => {
         </h2>
 
         <div className="relative max-w-[900px] 3xl:max-w-[1100px] 4xl:max-w-[1400px] mx-auto">
-          <div className="relative overflow-hidden shadow-2xl bg-[#0f0538]">
+          <div className="relative overflow-hidden shadow-2xl bg-[#1a1065]">
             {/* 배경 블러 서클 */}
             <div className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] bg-[#1907b7]/30 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute -bottom-1/3 -left-1/4 w-[400px] h-[400px] bg-[#ef283f]/10 rounded-full blur-[100px] pointer-events-none" />
@@ -134,12 +134,12 @@ const Testimonials = () => {
                     />
                   </AnimatePresence>
                   {/* 이미지→텍스트 융합 그래디언트 */}
-                  <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-transparent via-[#0f0538]/50 to-[#0f0538] hidden md:block z-10" />
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0f0538] to-transparent md:hidden z-10" />
+                  <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-transparent via-[#1a1065]/50 to-[#1a1065] hidden md:block z-10" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1a1065] to-transparent md:hidden z-10" />
                 </div>
 
                 {/* content */}
-                <div className="w-full md:w-[55%] bg-[#0f0538] p-6 md:p-12 3xl:p-14 4xl:p-20 flex flex-col justify-center relative md:-ml-1 z-0">
+                <div className="w-full md:w-[55%] bg-[#1a1065] p-6 md:p-12 3xl:p-14 4xl:p-20 flex flex-col justify-center relative md:-ml-1 z-0">
                   <motion.div
                     key={`text-${current}`}
                     initial="initial"
@@ -203,7 +203,7 @@ const Testimonials = () => {
                   <>
                     <div className="absolute inset-0 bg-black/5" />
                     <motion.div
-                      className="absolute inset-y-0 left-0 bg-[#0f0538]/60"
+                      className="absolute inset-y-0 left-0 bg-[#1a1065]/60"
                       style={{ width: `${progress * 100}%` }}
                     />
                   </>
