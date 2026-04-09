@@ -465,11 +465,11 @@ const ContactUs = () => {
           {/* 우측 비주얼 */}
           <motion.div
             ref={rightRef}
-            className="w-full flex flex-col min-h-0 h-full lg:pl-4 pt-[7.5rem] md:pt-[11rem] lg:pt-[12.25rem] xl:pt-[12.5rem]"
+            className="w-full flex flex-col min-h-0 h-full lg:pl-4 pt-4 md:pt-[11rem] lg:pt-[12.25rem] xl:pt-[12.5rem]"
             variants={rightColumnVariants}
           >
             <motion.p
-              className="font-kulim font-light text-[#050505] text-2xl md:text-3xl xl:text-4xl 2xl:text-[42px] leading-tight mb-6"
+              className="hidden lg:block font-kulim font-light text-[#050505] text-2xl md:text-3xl xl:text-4xl 2xl:text-[42px] leading-tight mb-6"
               variants={rightItemVariants}
             >
               We&apos;d love to{' '}
@@ -477,7 +477,7 @@ const ContactUs = () => {
               <br />
               with you.
             </motion.p>
-            <div className="relative z-10 flex gap-0.5 -mb-1">
+            <div className="hidden lg:flex relative z-10 gap-0.5 -mb-1">
               <motion.div
                 className="w-4 h-4 rounded-full bg-black"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -493,12 +493,19 @@ const ContactUs = () => {
               className="w-full flex flex-col justify-end flex-1"
               variants={rightItemVariants}
             >
+              {/* 모바일: 화살표 왼쪽 위 */}
+              <div className="flex justify-start mb-16 lg:hidden">
+                <svg width="70" height="20" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black">
+                  <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
               <img
                 src="/img/contact_us.png"
                 alt="Contact Us"
-                className="w-full h-auto object-contain mb-[6.5rem] md:mb-[7.5rem]"
+                className="w-full h-auto object-contain mb-0 md:mb-[7.5rem]"
               />
-              <div className="flex justify-end mb-8">
+              {/* 데스크탑: 화살표 오른쪽 아래 */}
+              <div className="hidden lg:flex justify-end mb-8">
                 <motion.div
                   initial={{ x: -100, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
