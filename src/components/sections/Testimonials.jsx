@@ -117,7 +117,7 @@ const Testimonials = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="relative flex flex-col md:flex-row items-stretch h-[320px] md:h-[360px] 3xl:h-[400px] 4xl:h-[480px] gap-0 overflow-hidden"
+                className="relative flex flex-col md:flex-row items-stretch h-[480px] md:h-[360px] 3xl:h-[400px] 4xl:h-[480px] gap-0 overflow-hidden"
               >
                 {/* image */}
                 <div className="w-full md:w-[45%] relative overflow-hidden bg-black/10 h-[200px] md:h-full shrink-0">

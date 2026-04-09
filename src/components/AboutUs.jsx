@@ -247,7 +247,7 @@ const AboutUs = () => {
                                 <h3 className="text-[24px] md:text-[34px] font-semibold tracking-wide md:tracking-normal leading-[27.24px] md:leading-normal">CULTURE</h3>
                                 <img src="/img/dot.png" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
                             </motion.div>
-                            <motion.p variants={fadeUpText} className="text-[16px] md:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 h-auto md:h-[180px] px-0 md:px-2 whitespace-pre-line md:whitespace-normal">
+                            <motion.p variants={fadeUpText} className="text-[16px] md:text-[19px] 3xl:text-[19px] 4xl:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 h-auto md:h-[180px] px-0 md:px-2 whitespace-pre-line md:whitespace-normal">
                                 {"Great work starts with understanding people. We dive deep into your brand’s values, then shape and amplify them so your audience feels instantly connected. When culture leads, stories stick."}
                             </motion.p>
                             <ParallaxImage
@@ -275,7 +275,7 @@ const AboutUs = () => {
                                 <h3 className="text-[24px] md:text-[34px] font-semibold tracking-wide md:tracking-normal leading-[27.24px] md:leading-normal">CREATIVITY</h3>
                                 <img src="/img/dot.png" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
                             </motion.div>
-                            <motion.p variants={fadeUpText} className="order-2 md:order-3 text-[16px] md:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 px-0 md:px-2 h-auto md:h-[180px] whitespace-pre-line md:whitespace-normal">
+                            <motion.p variants={fadeUpText} className="order-2 md:order-3 text-[16px] md:text-[19px] 3xl:text-[19px] 4xl:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 px-0 md:px-2 h-auto md:h-[180px] whitespace-pre-line md:whitespace-normal">
                                 {"“Good enough” isn’t in our vocabulary. We re‑imagine the familiar, break a few rules, and surprise viewers with fresh, on‑point ideas that make every project pop."}
                             </motion.p>
                         </motion.div>
@@ -295,7 +295,7 @@ const AboutUs = () => {
                                     <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </motion.div>
-                            <motion.p variants={fadeUpText} className="order-2 text-[16px] md:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 h-auto md:h-[180px] px-0 md:px-2 whitespace-pre-line md:whitespace-normal">
+                            <motion.p variants={fadeUpText} className="order-2 text-[16px] md:text-[19px] 3xl:text-[19px] 4xl:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 h-auto md:h-[180px] px-0 md:px-2 whitespace-pre-line md:whitespace-normal">
                                 {"Stories move markets. From concept and script to shoot and final cut, our full‑service team turns your message into a narrative that engages, inspires, and—most importantly—gets remembered."}
                             </motion.p>
                             <ParallaxImage
@@ -326,7 +326,7 @@ const AboutUs = () => {
                         }}
                         className="text-left"
                     >
-                        <div className="flex items-center gap-4 md:gap-8 mb-8 md:mb-10 ml-0 md:-ml-[110px]">
+                        <div className="flex items-center justify-between md:justify-start gap-4 md:gap-8 mb-8 md:mb-10 ml-0 md:-ml-[110px]">
                             <motion.div
                                 initial={{ x: -100, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
@@ -341,6 +341,17 @@ const AboutUs = () => {
                             <h2 className="text-[24px] md:text-[36px] 3xl:text-[40px] 4xl:text-[48px] font-semibold font-kulim text-black tracking-tight whitespace-nowrap leading-[27.24px] md:leading-tight">
                                 {CAPABILITIES[0].title}
                             </h2>
+                            <motion.div
+                                initial={{ x: -50, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                viewport={{ once: true, margin: '-100px' }}
+                                transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
+                                className="md:hidden"
+                            >
+                                <svg width="70" height="20" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black">
+                                    <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </motion.div>
                         </div>
                         <ul
                             className="relative list-none space-y-5 md:space-y-8"
@@ -407,7 +418,7 @@ const AboutUs = () => {
                         }}
                         className="text-left"
                     >
-                        <div className="flex items-center gap-4 md:gap-8 mb-8 md:mb-10 ml-0 md:-ml-[110px]">
+                        <div className="flex items-center justify-between md:justify-start gap-4 md:gap-8 mb-8 md:mb-10 ml-0 md:-ml-[110px]">
                             <motion.div
                                 initial={{ x: -100, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
@@ -422,6 +433,17 @@ const AboutUs = () => {
                             <h2 className="text-[24px] md:text-[36px] 3xl:text-[40px] 4xl:text-[48px] font-semibold font-kulim text-black tracking-tight whitespace-nowrap leading-[27.24px] md:leading-tight">
                                 {CAPABILITIES[1].title}
                             </h2>
+                            <motion.div
+                                initial={{ x: -50, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                viewport={{ once: true, margin: '-100px' }}
+                                transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
+                                className="md:hidden"
+                            >
+                                <svg width="70" height="20" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black">
+                                    <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </motion.div>
                         </div>
                         <ul
                             className="relative list-none space-y-5 md:space-y-8"

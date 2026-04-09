@@ -66,7 +66,7 @@ const Services = () => {
   // Mobile: index-based carousel
   if (isMobile) {
     return (
-      <section id="services" className="bg-white py-12 overflow-hidden font-kulim">
+      <section id="services" className="bg-white py-0 md:py-12 overflow-hidden font-kulim">
         <div className="relative w-full px-5">
           <div className="overflow-hidden">
             <motion.div
@@ -102,10 +102,10 @@ const Services = () => {
           {/* Navigation arrows */}
           <div className="flex justify-between items-center mt-4 px-1">
             <button onClick={handlePrev} className="p-2" aria-label="Previous">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
             <button onClick={handleNext} className="p-2" aria-label="Next">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
           </div>
         </div>

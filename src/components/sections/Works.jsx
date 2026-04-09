@@ -20,11 +20,11 @@ const Works = () => {
     { title: 'Parc', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/Parc.png', caseUrl: '/case/parc' },
     { title: 'Ecover', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/Ecover.png', caseUrl: '/case/ecover' },
     { title: 'Rosatis', desc: 'Digital Experience', color: 'bg-black', image: '/img/포트폴리오 썸네일/Rosati_s.png', caseUrl: '/case/rosatis' },
-    { title: 'Guro', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/Portfolio/Guro/Screenshot 2026-02-10 070056.png', caseUrl: '/case/guro' },
-    { title: 'CIMB Bank', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/Portfolio/CIMB/Screenshot 2026-02-10 064935.png', caseUrl: '/case/cimb' },
-    { title: '한국주택금융공사', desc: 'Digital Experience', color: 'bg-black', image: '/img/Portfolio/Desilo/Screenshot 2026-02-10 065738.png', caseUrl: '/case/khfc' },
+    { title: 'Guro', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/guro.png', caseUrl: '/case/guro' },
+    { title: 'CIMB Bank', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/cimb.png', caseUrl: '/case/cimb' },
+    { title: '한국주택금융공사', desc: 'Digital Experience', color: 'bg-black', image: '/img/Portfolio/한국주택금융공사/Screenshot 2026-03-30 140743.png', caseUrl: '/case/khfc' },
     { title: 'Lotte wellfood', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/Lotte.png', caseUrl: '/case/lotte-wellfood' },
-    { title: 'Urban break', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/포트폴리오 썸네일/Urban Break.png', caseUrl: '/case/urban-break' },
+    { title: 'Urban break', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/Portfolio/Urban Break/Screenshot 2026-03-31 170926.png', caseUrl: '/case/urban-break' },
   ];
   const infiniteWorks = Array(20).fill(works).flat();
 
@@ -78,7 +78,7 @@ const Works = () => {
   if (isMobile) {
     const currentWork = works[index % works.length];
     return (
-      <section id="works" className="py-16 bg-gray-50 overflow-hidden font-kulim">
+      <section id="works" className="py-4 md:py-16 bg-white overflow-hidden font-kulim">
         <div className="px-5">
           <div className="overflow-hidden">
             <motion.div
@@ -130,7 +130,7 @@ const Works = () => {
   const desktopX = startOffset - index * (CARD_WIDTH_DESKTOP + GAP);
 
   return (
-    <section id="works" className="py-32 bg-gray-50 overflow-hidden font-kulim">
+    <section id="works" className="py-32 bg-white overflow-hidden font-kulim">
       <div className="w-full h-[480px] 3xl:h-[480px] 4xl:h-[660px] flex items-center" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         <motion.div className="flex" style={{ gap: GAP }} animate={{ x: desktopX }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
           {infiniteWorks.map((work, i) => (

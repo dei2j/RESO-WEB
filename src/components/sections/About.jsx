@@ -23,7 +23,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="w-full md:min-h-screen bg-white pt-13 pb-10 3xl:pb-16 4xl:pb-20 relative font-kulim flex flex-col justify-between">
+    <section id="about" className="w-full md:min-h-screen bg-white pt-13 pb-0 md:pb-10 3xl:pb-16 4xl:pb-20 relative font-kulim flex flex-col justify-between">
       <div className="w-full overflow-hidden shrink-0 mt-4 mb-6 3xl:mb-25">
         <div className="flex w-max animate-marquee items-center gap-16">
           {allLogos.map((src, index) => (
@@ -38,16 +38,16 @@ const About = () => {
       <div className="w-full px-6 pt-6 flex flex-col lg:hidden">
         <div className="flex items-center gap-4 mb-8">
           <motion.div
-            className="relative w-[120px] h-[180px] shrink-0 flex items-center justify-center"
+            className="relative w-[150px] h-[220px] shrink-0 flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.8, x: -30 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <img src="/img/logo/design.png" alt="Design" className="w-full h-full object-contain" />
+            <video src="/video/home/Innovation - Layers 3.mp4" autoPlay muted loop playsInline className="w-full h-full object-contain" />
           </motion.div>
-          <motion.h2 className="text-[28px] font-[400] leading-[34px] text-gray-900" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}>
-            Leading <span className="text-[#1907b7] italic font-bold">the charge</span> in global business <span className="text-[#ef283f] italic font-bold">innovation.</span>
+          <motion.h2 className="text-[36px] font-[400] leading-[42px] text-gray-900" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}>
+            Leading <br /><span className="text-[#1907b7] italic font-bold">the charge</span> <br />in global <br />business <br /><span className="text-[#ef283f] italic font-bold">innovation.</span>
           </motion.h2>
         </div>
         <div className="grid grid-cols-2 gap-y-8 gap-x-6">
@@ -72,7 +72,7 @@ const About = () => {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <img src="/img/logo/design.png" alt="Design" className="w-full h-full object-contain" />
+            <video src="/video/home/Innovation - Layers 3.mp4" autoPlay muted loop playsInline className="w-full h-full object-contain" />
           </motion.div>
         </div>
 
@@ -101,7 +101,7 @@ const About = () => {
         </div>
       </div>
 
-      <motion.div className="w-full px-6 md:px-20 lg:px-32 shrink-0 pb-6 mt-12 md:mt-16 3xl:mt-24 4xl:mt-28 max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2100px] mx-auto" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}>
+      <motion.div className="w-full px-6 md:px-20 lg:px-32 shrink-0 pb-6 mt-20 md:mt-16 3xl:mt-24 4xl:mt-28 max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2100px] mx-auto" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}>
         {/* 모바일 화살표 - 텍스트 위 */}
         <motion.div className="mb-6 md:hidden" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.7 }}>
           <svg width="70" height="20" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +109,7 @@ const About = () => {
           </svg>
         </motion.div>
         <div className="flex justify-between items-end">
-          <h2 className="text-[28px] md:text-[40px] lg:text-[48px] 3xl:text-[52px] 4xl:text-[72px] font-normal text-gray-800 leading-[1.15]">
+          <h2 className="text-[36px] md:text-[40px] lg:text-[48px] 3xl:text-[52px] 4xl:text-[72px] font-normal text-gray-800 leading-[1.15]">
             We deliver <br className="block md:hidden" /> <span className="text-[#1907b7] font-bold">the best results</span> - <br />
             always with <br className="block md:hidden" /> <span className="text-[#ef283f] font-bold">the right solution.</span>
           </h2>
