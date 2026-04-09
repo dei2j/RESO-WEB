@@ -155,25 +155,26 @@ const WORK_ITEMS = [
   { title: 'AIA', category: 'Digital experience', image: '/img/포트폴리오 썸네일/AIA.png', caseUrl: '/case/aia' },
   { title: 'KT', category: 'Digital experience', image: '/img/포트폴리오 썸네일/KT.png', caseUrl: '/case/kt' },
   { title: 'Agent F', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Agent F.png', caseUrl: '/case/agent-f' },
+  { title: 'HSBC', category: 'Digital experience', image: '/img/포트폴리오 썸네일/HSBC.png', caseUrl: '/case/hsbc' },
   { title: 'Royal Salute', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Royal Salute.png', caseUrl: '/case/royal-salute' },
   { title: 'Zeta Mobility', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Zeta Mobility.png', caseUrl: '/case/zeta-mobility' },
-  { title: 'HSBC', category: 'Digital experience', image: '/img/포트폴리오 썸네일/HSBC.png', caseUrl: '/case/hsbc' },
-  { title: '프로그래머스', category: 'Digital experience', image: '/img/포트폴리오 썸네일/프로그래머스.png', caseUrl: '/case/programmers' },
   { title: 'Hermes', category: 'Digital experience', image: '/img/포트폴리오 썸네일/hermes.png', caseUrl: '/case/hermes' },
   { title: 'Kumho Tire', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Kumho Tire.png', caseUrl: '/case/kumho-tire' },
   { title: 'CJ 제일제당', category: 'Digital experience', image: '/img/포트폴리오 썸네일/CJ 제일제당.png', caseUrl: '/case/cj' },
+  { title: '프로그래머스', category: 'Digital experience', image: '/img/포트폴리오 썸네일/프로그래머스.png', caseUrl: '/case/programmers' },
   { title: 'Desilo', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Desilo.png', caseUrl: '/case/desilo' },
   { title: 'Takamol', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Takamol.png', caseUrl: '/case/takamol' },
   { title: 'Parc', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Parc.png', caseUrl: '/case/parc' },
   { title: 'Ecover', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Ecover.png', caseUrl: '/case/ecover' },
   { title: 'Rosatis', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Rosati_s.png', caseUrl: '/case/rosatis' },
-  { title: 'Guro', category: 'Digital experience', image: '/img/Portfolio/Guro/Screenshot 2026-02-10 070056.png', caseUrl: '/case/guro' },
-  { title: 'CIMB Bank', category: 'Digital experience', image: '/img/Portfolio/CIMB/Screenshot 2026-02-10 064935.png', caseUrl: '/case/cimb' },
-  { title: '한국주택금융공사', category: 'Digital experience', image: '/img/Portfolio/Desilo/Screenshot 2026-02-10 065738.png', caseUrl: '/case/khfc' },
+  { title: 'Guro', category: 'Digital experience', image: '/img/포트폴리오 썸네일/guro.png', caseUrl: '/case/guro' },
+  { title: 'CIMB Bank', category: 'Digital experience', image: '/img/포트폴리오 썸네일/cimb.png', caseUrl: '/case/cimb' },
+  { title: '한국주택금융공사', category: 'Digital experience', image: '/img/Portfolio/한국주택금융공사/Screenshot 2026-03-30 140743.png', caseUrl: '/case/khfc' },
+  { title: 'Urban break', category: 'Digital experience', image: '/img/Portfolio/Urban Break/Screenshot 2026-03-31 170926.png', caseUrl: '/case/urban-break' },
   { title: 'Lotte wellfood', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Lotte.png', caseUrl: '/case/lotte-wellfood' },
-  { title: 'Urban break', category: 'Digital experience', image: '/img/포트폴리오 썸네일/Urban Break.png', caseUrl: '/case/urban-break' },
-  { title: '들고가유', category: 'Digital experience', image: '/img/포트폴리오 썸네일/들고가유.png', caseUrl: '/case/deulgogayu' },
+  { title: 'SI', category: 'Digital experience', image: '/img/포트폴리오 썸네일/si.png', caseUrl: '/case/deulgogayu' },
   { title: 'Lolpago', category: 'Digital experience', image: '/img/포트폴리오 썸네일/롤파고.png', caseUrl: '/case/lolpago' },
+  { title: 'Taekwondo Tournament', category: 'Digital experience', image: '/img/포트폴리오 썸네일/태권도.png', caseUrl: '/case/taekwondo' },
 ];
 
 function chunkByPattern(items, pattern = [1, 2]) {
@@ -344,7 +345,7 @@ const FeaturedCard = ({ title, category, image, caseUrl, index }) => {
           transition={{ duration: 0.6, ease: smoothEase }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 p-4 md:p-10 pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 p-4 md:p-10 pointer-events-none hidden md:block">
           <div className="flex items-baseline gap-2 md:gap-4 mb-1">
             <span className="font-kulim font-light text-white/40 text-xs md:text-base">{num}</span>
             <h3 className="font-kulim font-bold italic text-white text-2xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight drop-shadow-md">
@@ -370,6 +371,28 @@ const FeaturedCard = ({ title, category, image, caseUrl, index }) => {
       variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
     >
       {caseUrl ? <Link to={caseUrl} className="block" onClick={() => { window.__fromWorksToCase = true; }}>{imageBlock}</Link> : imageBlock}
+
+      {/* 모바일: 이미지 아래 제목 + 화살표 */}
+      <div className="md:hidden mt-4">
+        <div className="flex items-center justify-between mb-1">
+          <div className="flex items-baseline gap-2">
+            <span className="font-kulim font-light text-gray-300 text-xs">{num}</span>
+            <h3 className="font-kulim font-bold italic text-[#1907b7] text-xl leading-tight">{title}</h3>
+          </div>
+          {caseUrl && (
+            <Link
+              to={caseUrl}
+              onClick={() => { window.__fromWorksToCase = true; }}
+              className="w-8 h-8 rounded-full bg-[#ee2c41] flex items-center justify-center shrink-0"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          )}
+        </div>
+        <p className="font-pretendard font-extralight text-gray-400 text-[11px] leading-tight pl-6">{category}</p>
+      </div>
     </motion.article>
   );
 };
@@ -454,7 +477,7 @@ const ArchiveCard = ({ title, image, caseUrl, index }) => {
 };
 
 const WorksPage = () => {
-  const rows = useMemo(() => chunkByPattern(WORK_ITEMS), []);
+  const rows = useMemo(() => chunkByPattern(WORK_ITEMS, [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1]), []);
   const [activeTab, setActiveTab] = useState('featured');
   // 케이스 스터디에서 돌아온 경우(뒤로가기 or Back to list) 스킵
   const skipIntro = !!window.__fromWorksToCase;
@@ -492,7 +515,7 @@ const WorksPage = () => {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className="relative pb-4 group"
+                className="relative pb-4 group cursor-pointer"
               >
                 <span className={`text-xs md:text-sm uppercase tracking-[0.3em] transition-colors duration-300 ${
                   activeTab === tab ? 'text-[#1907b7] font-bold' : 'text-gray-400 group-hover:text-gray-600'
