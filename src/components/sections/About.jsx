@@ -44,7 +44,7 @@ const About = () => {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <video src="/video/home/Innovation - Layers 3.mp4" autoPlay muted loop playsInline className="w-full h-full object-contain" />
+            <video src="/video/home/Innovation - Layers 3.mp4" autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-contain" />
           </motion.div>
           <motion.h2 className="text-[36px] font-[400] leading-[42px] text-gray-900" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}>
             Leading <br /><span className="text-[#1907b7] italic font-bold">the charge</span> <br />in global <br />business <br /><span className="text-[#ef283f] italic font-bold">innovation.</span>
@@ -72,7 +72,7 @@ const About = () => {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <video src="/video/home/Innovation - Layers 3.mp4" autoPlay muted loop playsInline className="w-full h-full object-contain" />
+            <video src="/video/home/Innovation - Layers 3.mp4" autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-contain" />
           </motion.div>
         </div>
 

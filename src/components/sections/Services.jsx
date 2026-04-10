@@ -11,7 +11,7 @@ const Services = () => {
     { id: '06', title: 'System Development', video: '/video/home_list/System developement_v1.mp4' },
     { id: '07', title: 'AI/AX', video: '/video/home_list/AI AX_v2.mp4' },
   ];
-  const infiniteServices = Array(20).fill(services).flat();
+  const infiniteServices = Array(6).fill(services).flat();
 
   const containerRef = useRef(null);
   const itemRef = useRef(null);
@@ -37,7 +37,7 @@ const Services = () => {
         const w = itemRef.current.offsetWidth + 24;
         itemWidthRef.current = w;
         const cycleWidth = w * services.length;
-        x.set(-cycleWidth * 4);
+        x.set(-cycleWidth * 2);
         setIsReady(true);
       }
     };
@@ -56,7 +56,7 @@ const Services = () => {
     const cycleWidth = itemWidthRef.current * services.length;
     const currentX = x.get();
     const newX = currentX + moveBy;
-    const wrappedX = wrap(-cycleWidth * 9, -cycleWidth * 4, newX);
+    const wrappedX = wrap(-cycleWidth * 4, -cycleWidth * 2, newX);
     x.set(wrappedX);
   });
 
@@ -91,6 +91,7 @@ const Services = () => {
                       muted
                       loop
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover pointer-events-none"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -144,6 +145,7 @@ const Services = () => {
                   muted
                   loop
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>

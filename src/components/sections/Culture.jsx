@@ -25,6 +25,7 @@ const Culture = () => {
               muted
               loop
               playsInline
+              preload="metadata"
               className="w-full h-full object-cover"
             />
           </div>
