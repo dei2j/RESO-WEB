@@ -1,13 +1,15 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
-import AboutUs from './pages/AboutUs';
-import WorksPage from './pages/WorksPage';
-import ContactUs from './pages/ContactUs';
-import CaseStudyPage from './pages/CaseStudyPage';
-import DeulgogayuPage from './pages/DeulgogayuPage';
-import LolpagoPage from './pages/LolpagoPage';
-import TaekwondoPage from './pages/TaekwondoPage';
+
+const AboutUs = lazy(() => import('./pages/AboutUs'));
+const WorksPage = lazy(() => import('./pages/WorksPage'));
+const ContactUs = lazy(() => import('./pages/ContactUs'));
+const CaseStudyPage = lazy(() => import('./pages/CaseStudyPage'));
+const DeulgogayuPage = lazy(() => import('./pages/DeulgogayuPage'));
+const LolpagoPage = lazy(() => import('./pages/LolpagoPage'));
+const TaekwondoPage = lazy(() => import('./pages/TaekwondoPage'));
 
 function App() {
   return (
@@ -15,13 +17,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="about-us" element={<AboutUs />} />
-          <Route path="works" element={<WorksPage />} />
-          <Route path="contact-us" element={<ContactUs />} />
-          <Route path="case/deulgogayu" element={<DeulgogayuPage />} />
-          <Route path="case/lolpago" element={<LolpagoPage />} />
-          <Route path="case/taekwondo" element={<TaekwondoPage />} />
-          <Route path="case/:slug" element={<CaseStudyPage />} />
+          <Route path="about-us" element={<Suspense fallback={null}><AboutUs /></Suspense>} />
+          <Route path="works" element={<Suspense fallback={null}><WorksPage /></Suspense>} />
+          <Route path="contact-us" element={<Suspense fallback={null}><ContactUs /></Suspense>} />
+          <Route path="case/deulgogayu" element={<Suspense fallback={null}><DeulgogayuPage /></Suspense>} />
+          <Route path="case/lolpago" element={<Suspense fallback={null}><LolpagoPage /></Suspense>} />
+          <Route path="case/taekwondo" element={<Suspense fallback={null}><TaekwondoPage /></Suspense>} />
+          <Route path="case/:slug" element={<Suspense fallback={null}><CaseStudyPage /></Suspense>} />
         </Route>
       </Routes>
     </BrowserRouter>
