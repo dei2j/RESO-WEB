@@ -4,22 +4,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 const reviews = [
   {
     client: 'Kakao',
-    image: '/img/review/카카오 썸네일.png',
+    image: '/img/review/카카오 썸네일.webp',
     text: '규모가 크지 않은 프로젝트였음에도,\n디테일한 수정사항까지 꼼꼼하게 반영해주셔서 감사드립니다.\n차후 큰 프로젝트로 다시 만나뵙길 기대합니다.',
   },
   {
     client: 'CJ 제일제당',
-    image: '/img/review/CJ제일제당 첫 영상.JPG',
+    image: '/img/review/CJ제일제당 첫 영상.webp',
     text: '수정사항이 많고 짧은 시간에도 잘 대응해주셔서 감사했습니다.\n특히 성우를 여러번 바꿈에도 친절하게 기간내 응대해주셔서 감사드립니다.',
   },
   {
     client: 'CSG',
-    image: '/img/review/CSG.JPG',
+    image: '/img/review/CSG.webp',
     text: '처음 영상 제작을 의뢰하면서 많이 걱정했는데, 합리적인 비용으로 기대한 만큼의 결과물이 나와 아주 만족합니다.\n특히, 추가되는 요구사항에 대한 피드백이 빠른 점이 좋았고, 항상 친절하게 대응해주시는 점이 인상 깊었습니다.',
   },
   {
     client: 'Hass',
-    image: '/img/review/Hass.png',
+    image: '/img/review/Hass.webp',
     text: '마감 일정을 정확히 지켜주셔서 무사히 마무리할 수 있었습니다.\n적절한 곡으로 BGM까지 선정해 주셔서 분위기가 훨씬 살아났습니다.\n여러 번 수정 요청을 드렸음에도 꼼꼼하게 작업해 주셔서 정말 감사했습니다.',
   },
 ];

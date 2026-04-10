@@ -130,7 +130,7 @@ const AboutUs = () => {
             <section
                 id="about-us-hero"
                 className="sticky top-0 z-0 w-full h-[70vh] md:h-[80vh] min-h-[500px] md:min-h-[600px] overflow-hidden bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: 'url(/img/bg.png)' }}
+                style={{ backgroundImage: 'url(/img/bg.webp)' }}
             >
                 <motion.div
                     className="relative z-10 max-w-[1400px] 3xl:max-w-[1500px] 4xl:max-w-[1900px] mx-auto px-5 md:px-5 lg:px-6 pt-12 md:pt-16 pb-24 mt-16 md:mt-32 3xl:mt-40 4xl:mt-80 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-50"
@@ -185,7 +185,7 @@ const AboutUs = () => {
                             custom={0}
                         >
                             <img
-                                src="/img/circle.png"
+                                src="/img/circle.webp"
                                 alt=""
                                 className="w-full h-full object-contain"
                             />
@@ -245,13 +245,13 @@ const AboutUs = () => {
                         >
                             <motion.div variants={fadeUpText} className="flex justify-between items-start w-full px-0 md:px-2">
                                 <h3 className="text-[24px] md:text-[34px] font-semibold tracking-wide md:tracking-normal leading-[27.24px] md:leading-normal">CULTURE</h3>
-                                <img src="/img/dot.png" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+                                <img src="/img/dot.webp" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
                             </motion.div>
                             <motion.p variants={fadeUpText} className="text-[16px] md:text-[19px] 3xl:text-[19px] 4xl:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 h-auto md:h-[180px] px-0 md:px-2 whitespace-pre-line md:whitespace-normal">
                                 {"Great work starts with understanding people. We dive deep into your brand’s values, then shape and amplify them so your audience feels instantly connected. When culture leads, stories stick."}
                             </motion.p>
                             <ParallaxImage
-                                src="/img/homePage/graphics.png"
+                                src="/img/homePage/graphics.webp"
                                 alt="Culture"
                                 className="aspect-[1.19] md:aspect-[6/7]"
                                 objectPosition="object-[60%_center]"
@@ -267,13 +267,13 @@ const AboutUs = () => {
                             variants={{ visible: { transition: { staggerChildren: 0.2, delayChildren: 0.2 } } }}
                         >
                             <ParallaxImage
-                                src="/img/homePage/Motion.png"
+                                src="/img/homePage/Motion.webp"
                                 alt="Creativity"
                                 className="order-3 md:order-1 aspect-[1.166] md:aspect-[6/7]"
                             />
                             <motion.div variants={fadeUpText} className="order-1 md:order-2 flex justify-between items-start w-full px-0 md:px-2">
                                 <h3 className="text-[24px] md:text-[34px] font-semibold tracking-wide md:tracking-normal leading-[27.24px] md:leading-normal">CREATIVITY</h3>
-                                <img src="/img/dot.png" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+                                <img src="/img/dot.webp" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
                             </motion.div>
                             <motion.p variants={fadeUpText} className="order-2 md:order-3 text-[16px] md:text-[19px] 3xl:text-[19px] 4xl:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 px-0 md:px-2 h-auto md:h-[180px] whitespace-pre-line md:whitespace-normal">
                                 {"“Good enough” isn’t in our vocabulary. We re‑imagine the familiar, break a few rules, and surprise viewers with fresh, on‑point ideas that make every project pop."}
@@ -290,7 +290,7 @@ const AboutUs = () => {
                         >
                             <motion.div variants={fadeUpText} className="order-1 flex justify-between items-start w-full px-0 md:px-2">
                                 <h3 className="text-[24px] md:text-[34px] font-semibold tracking-wide md:tracking-normal leading-[27.24px] md:leading-normal">STORYTELLING</h3>
-                                <img src="/img/dot.png" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain md:hidden" />
+                                <img src="/img/dot.webp" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain md:hidden" />
                                 <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black hidden md:block">
                                     <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
@@ -299,7 +299,7 @@ const AboutUs = () => {
                                 {"Stories move markets. From concept and script to shoot and final cut, our full‑service team turns your message into a narrative that engages, inspires, and—most importantly—gets remembered."}
                             </motion.p>
                             <ParallaxImage
-                                src="/img/homePage/System (1).png"
+                                src="/img/homePage/System (1).webp"
                                 alt="Storytelling"
                                 className="order-3 aspect-[1.16] md:aspect-[6/7]"
                             />
@@ -385,17 +385,17 @@ const AboutUs = () => {
                         aria-hidden
                     >
                         <img
-                            src="/img/shadow.png"
+                            src="/img/shadow.webp"
                             alt=""
                             className="absolute bottom-[-260px] right-[-1250px] w-[200%] min-w-[1600px] max-w-[1800px] h-auto object-contain object-bottom z-0"
                         />
                         <img
-                            src="/img/circle.png"
+                            src="/img/circle.webp"
                             alt=""
                             className="absolute right-[18%] top-[58%] -translate-y-1/2 w-[72px] lg:w-[100px] 3xl:w-[110px] 4xl:w-[120px] h-auto object-contain z-[1]"
                         />
                         <img
-                            src="/img/box.png"
+                            src="/img/box.webp"
                             alt=""
                             className="relative max-w-full max-h-[400px] 3xl:max-h-[440px] 4xl:max-h-[500px] w-auto h-auto object-contain z-10"
                         />

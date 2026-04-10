@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NextProjectSection from '../components/NextProjectSection';
 
-const images = Array.from({ length: 10 }, (_, i) => `/img/Portfolio/들고가유/Crop SI ${i + 1}.png`);
+const images = Array.from({ length: 10 }, (_, i) => `/img/Portfolio/들고가유/Crop SI ${i + 1}.webp`);
 
 const DeulgogayuPage = () => {
   useEffect(() => {
@@ -38,7 +38,7 @@ const DeulgogayuPage = () => {
       </div>
 
       <NextProjectSection
-        nextHeroImage="/img/Portfolio/롤파고/Crop Lolpago 1.png"
+        nextHeroImage="/img/Portfolio/롤파고/Crop Lolpago 1.webp"
         nextTitle="Lolpago"
         nextHref="/case/lolpago"
       />

@@ -300,9 +300,9 @@ const CaseStudyPage = () => {
   const { slug } = useParams();
   const data = CASE_DATA[slug];
   const CUSTOM_HERO = {
-    deulgogayu: '/img/Portfolio/들고가유/Crop SI 1.png',
-    lolpago: '/img/Portfolio/롤파고/Crop Lolpago 1.png',
-    taekwondo: '/img/Portfolio/태권도/Crop Taekwondo tournaments 1.png',
+    deulgogayu: '/img/Portfolio/들고가유/Crop SI 1.webp',
+    lolpago: '/img/Portfolio/롤파고/Crop Lolpago 1.webp',
+    taekwondo: '/img/Portfolio/태권도/Crop Taekwondo tournaments 1.webp',
   };
   const nextData = data?.nextSlug ? CASE_DATA[data.nextSlug] : null;
   const nextHeroImage = nextData?.heroImage || CUSTOM_HERO[data?.nextSlug] || data?.heroImage;

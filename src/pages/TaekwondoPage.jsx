@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import NextProjectSection from '../components/NextProjectSection';
 
 const images = [
-  ...Array.from({ length: 13 }, (_, i) => `/img/Portfolio/태권도/Crop Taekwondo tournaments ${i + 1}.png`),
-  '/img/Portfolio/태권도/Crop Taekwondo tournaments14.png',
+  ...Array.from({ length: 13 }, (_, i) => `/img/Portfolio/태권도/Crop Taekwondo tournaments ${i + 1}.webp`),
+  '/img/Portfolio/태권도/Crop Taekwondo tournaments14.webp',
 ];
 
 const TaekwondoPage = () => {
@@ -39,7 +39,7 @@ const TaekwondoPage = () => {
       </div>
 
       <NextProjectSection
-        nextHeroImage="/img/Portfolio/AIA/Screenshot 2026-02-10 064548.png"
+        nextHeroImage="/img/Portfolio/AIA/Screenshot 2026-02-10 064548.webp"
         nextTitle="AIA"
         nextHref="/case/aia"
       />

@@ -4,15 +4,15 @@ import Counter from '../Counter';
 
 const About = () => {
   const logoFiles = [
-    '/img/logo/1. 에르메스.png', '/img/logo/2. 삼성전자 로고_2.png', '/img/logo/3. 3M.png',
-    '/img/logo/4. 펩시.png', '/img/logo/5. 현대 L&C.png', '/img/logo/6. Honda.png',
-    '/img/logo/7. CJ 제일제당.png', '/img/logo/8. CJ 대한통운.webp', '/img/logo/9. 카카오 로고.svg',
-    '/img/logo/10. gs25 로고.svg', '/img/logo/11. kt-ci.png', '/img/logo/12. HSBC.png',
-    '/img/logo/13. Lotte_Wellfood_logo.svg.png', '/img/logo/14. KB 금융.png', '/img/logo/15. SK 쉴더스.png',
-    '/img/logo/16. 한화비전.png', '/img/logo/17. 한컴 로고.png', '/img/logo/18. 펄어비스.png',
-    '/img/logo/19. 교보 DTS.jpg', '/img/logo/20. 오늘의 집 로고.png', '/img/logo/21. 기획재정부 로고.png',
-    '/img/logo/22. 국방과학연구소.png', '/img/logo/23. 서울시.png', '/img/logo/24. 경기도교육청_2.png',
-    '/img/logo/25. 서대문구청.png', '/img/logo/26. 한국전력공가 로고.svg', '/img/logo/27. 화성특레시.svg',
+    '/img/logo/1. 에르메스.webp', '/img/logo/2. 삼성전자 로고_2.webp', '/img/logo/3. 3M.webp',
+    '/img/logo/4. 펩시.webp', '/img/logo/5. 현대 L&C.webp', '/img/logo/6. Honda.webp',
+    '/img/logo/7. CJ 제일제당.webp', '/img/logo/8. CJ 대한통운.webp', '/img/logo/9. 카카오 로고.svg',
+    '/img/logo/10. gs25 로고.svg', '/img/logo/11. kt-ci.webp', '/img/logo/12. HSBC.webp',
+    '/img/logo/13. Lotte_Wellfood_logo.svg.webp', '/img/logo/14. KB 금융.webp', '/img/logo/15. SK 쉴더스.webp',
+    '/img/logo/16. 한화비전.webp', '/img/logo/17. 한컴 로고.webp', '/img/logo/18. 펄어비스.webp',
+    '/img/logo/19. 교보 DTS.webp', '/img/logo/20. 오늘의 집 로고.webp', '/img/logo/21. 기획재정부 로고.webp',
+    '/img/logo/22. 국방과학연구소.webp', '/img/logo/23. 서울시.webp', '/img/logo/24. 경기도교육청_2.webp',
+    '/img/logo/25. 서대문구청.webp', '/img/logo/26. 한국전력공가 로고.svg', '/img/logo/27. 화성특레시.svg',
   ];
   const allLogos = [...logoFiles, ...logoFiles];
   const stats = [

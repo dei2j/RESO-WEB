@@ -500,7 +500,7 @@ const ContactUs = () => {
                 </svg>
               </div>
               <img
-                src="/img/contact_us.png"
+                src="/img/contact_us.webp"
                 alt="Contact Us"
                 className="w-full h-auto object-contain mb-0 md:mb-[7.5rem]"
               />

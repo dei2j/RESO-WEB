@@ -54,7 +54,7 @@ const FloatingLogo = ({ onClickLogo }) => {
         <Logo className="w-full h-auto text-white" />
       </div>
       <div className={`absolute inset-0 transition-opacity duration-500 ${isWhiteTheme ? 'opacity-0' : 'opacity-100'}`}>
-        <img src="/img/reso.png" alt="RESO" className="w-full h-auto" />
+        <img src="/img/reso.webp" alt="RESO" className="w-full h-auto" />
       </div>
     </div>
   );
