@@ -10,7 +10,7 @@ const Hero = () => {
           loop
           muted
           playsInline
-          poster="/video/hero-poster.jpg"
+          poster="/video/hero-poster.webp"
           className="absolute inset-0 w-full h-full object-cover"
           aria-hidden
         >
