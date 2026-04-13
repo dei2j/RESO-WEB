@@ -3,6 +3,8 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { CASE_DATA } from '../data/caseStudies';
 
+// ── Luxury easing curves (placeholder removed) ──
+
 // ── Luxury easing curves ──
 const luxuryEase = [0.76, 0, 0.24, 1];
 const enterEase = [0.33, 1, 0.68, 1];
@@ -146,7 +148,7 @@ const NextProjectSection = ({
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[28vh] md:min-h-[35vh] lg:min-h-[40vh] flex items-center justify-center overflow-hidden cursor-none"
+      className="next-project-section relative min-h-[28vh] md:min-h-[35vh] lg:min-h-[40vh] flex items-center justify-center overflow-hidden cursor-none"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -484,7 +486,7 @@ const CaseStudyPage = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
             >
-              <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+              <div className="video-embed-wrapper relative w-full aspect-video rounded-lg overflow-hidden bg-black [&_*]:!cursor-auto">
                 <iframe
                   src={data.video}
                   title={data.title}
