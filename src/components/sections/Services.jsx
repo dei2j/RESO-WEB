@@ -3,13 +3,13 @@ import { motion, useMotionValue, useAnimationFrame, wrap } from 'framer-motion';
 
 const Services = () => {
   const services = [
-    { id: '01', title: 'Motion Graphics', video: '/video/home_list/Motion_v3.mp4' },
-    { id: '02', title: 'UI/UX', video: '/video/home_list/UIUX_v3.mp4' },
-    { id: '03', title: 'Graphic Design', video: '/video/home_list/Graphic_v3.mp4' },
-    { id: '04', title: 'App Development', video: '/video/home_list/App_v2.mp4' },
-    { id: '05', title: 'ERP', video: '/video/home_list/ERP_v2.mp4' },
-    { id: '06', title: 'System Development', video: '/video/home_list/System developement_v1.mp4' },
-    { id: '07', title: 'AI/AX', video: '/video/home_list/AI AX_v2.mp4' },
+    { id: '01', title: 'Motion Graphics', video: '/video/home_list/Motion.mp4' },
+    { id: '02', title: 'UI/UX', video: '/video/home_list/UIUX.mp4' },
+    { id: '03', title: 'Graphic Design', video: '/video/home_list/Graphic.mp4' },
+    { id: '04', title: 'App Development', video: '/video/home_list/App 2.mp4' },
+    { id: '05', title: 'ERP', video: '/video/home_list/ERP 2.mp4' },
+    { id: '06', title: 'System Development', video: '/video/home_list/System developement.mp4' },
+    { id: '07', title: 'AI/AX', video: '/video/home_list/AI AX_2.mp4' },
   ];
   const infiniteServices = Array(6).fill(services).flat();
 
