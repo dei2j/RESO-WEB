@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Culture = () => {
   return (
@@ -11,14 +12,20 @@ const Culture = () => {
             <span className="font-bold text-[#ef283f] italic">every story</span> <br />
             <span className="font-bold text-[#ef283f] italic">we share.</span>
           </h2>
-          <div className="hidden lg:block mt-65 lg:mt-0">
+          <motion.div
+            className="hidden lg:block mt-65 lg:mt-0"
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: false, margin: '-100px' }}
+            transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
+          >
             <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black 4xl:scale-125 origin-left">
               <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </div>
+          </motion.div>
         </div>
         <div className="hidden lg:block lg:w-2/3 w-full">
-          <div className="relative w-full aspect-video overflow-hidden shadow-2xl">
+          <div className="relative w-full aspect-video overflow-hidden">
             <video
               src="/video/home/Reso_Section 2.mp4"
               autoPlay
