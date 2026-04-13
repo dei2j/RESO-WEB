@@ -251,7 +251,7 @@ const AboutUs = () => {
                                 {"Great work starts with understanding people. We dive deep into your brand’s values, then shape and amplify them so your audience feels instantly connected. When culture leads, stories stick."}
                             </motion.p>
                             <ParallaxImage
-                                src="/img/homePage/graphics.webp"
+                                src="/img/about/Rectangle 37.webp"
                                 alt="Culture"
                                 className="aspect-[1.19] md:aspect-[6/7]"
                                 objectPosition="object-[60%_center]"
@@ -267,7 +267,7 @@ const AboutUs = () => {
                             variants={{ visible: { transition: { staggerChildren: 0.2, delayChildren: 0.2 } } }}
                         >
                             <ParallaxImage
-                                src="/img/homePage/Motion.webp"
+                                src="/img/about/자산 3.webp"
                                 alt="Creativity"
                                 className="order-3 md:order-1 aspect-[1.166] md:aspect-[6/7]"
                             />
@@ -291,15 +291,21 @@ const AboutUs = () => {
                             <motion.div variants={fadeUpText} className="order-1 flex justify-between items-start w-full px-0 md:px-2">
                                 <h3 className="text-[24px] md:text-[34px] font-semibold tracking-wide md:tracking-normal leading-[27.24px] md:leading-normal">STORYTELLING</h3>
                                 <img src="/img/dot.webp" alt="" className="w-6 h-6 md:w-8 md:h-8 object-contain md:hidden" />
-                                <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black hidden md:block">
+                                <motion.svg
+                                    width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black hidden md:block"
+                                    initial={{ x: -100, opacity: 0 }}
+                                    whileInView={{ x: 0, opacity: 1 }}
+                                    viewport={{ once: false, margin: '-100px' }}
+                                    transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
+                                >
                                     <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
+                                </motion.svg>
                             </motion.div>
                             <motion.p variants={fadeUpText} className="order-2 text-[16px] md:text-[19px] 3xl:text-[19px] 4xl:text-[21px] font-kulim font-[300] leading-[24px] md:leading-relaxed text-gray-800 h-auto md:h-[180px] px-0 md:px-2 whitespace-pre-line md:whitespace-normal">
                                 {"Stories move markets. From concept and script to shoot and final cut, our full‑service team turns your message into a narrative that engages, inspires, and—most importantly—gets remembered."}
                             </motion.p>
                             <ParallaxImage
-                                src="/img/homePage/System (1).webp"
+                                src="/img/about/Rectangle 41.webp"
                                 alt="Storytelling"
                                 className="order-3 aspect-[1.16] md:aspect-[6/7]"
                             />
@@ -330,7 +336,7 @@ const AboutUs = () => {
                             <motion.div
                                 initial={{ x: -100, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true, margin: '-100px' }}
+                                viewport={{ once: false, margin: '-100px' }}
                                 transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
                                 className="hidden md:block"
                             >
@@ -344,7 +350,7 @@ const AboutUs = () => {
                             <motion.div
                                 initial={{ x: -50, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true, margin: '-100px' }}
+                                viewport={{ once: false, margin: '-100px' }}
                                 transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
                                 className="md:hidden"
                             >
@@ -422,7 +428,7 @@ const AboutUs = () => {
                             <motion.div
                                 initial={{ x: -100, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true, margin: '-100px' }}
+                                viewport={{ once: false, margin: '-100px' }}
                                 transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
                                 className="hidden md:block"
                             >
@@ -436,7 +442,7 @@ const AboutUs = () => {
                             <motion.div
                                 initial={{ x: -50, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true, margin: '-100px' }}
+                                viewport={{ once: false, margin: '-100px' }}
                                 transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}
                                 className="md:hidden"
                             >
