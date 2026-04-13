@@ -502,7 +502,7 @@ const ContactUs = () => {
               <img
                 src="/img/contact_us.webp"
                 alt="Contact Us"
-                className="w-full h-auto object-contain mb-0 md:mb-[7.5rem]"
+                className="w-full h-auto object-contain mb-0 lg:mt-40 3xl:mt-44 4xl:mt-48 md:mb-[7.5rem]"
               />
               {/* 데스크탑: 화살표 오른쪽 아래 */}
               <div className="hidden lg:flex justify-end mb-8">
