@@ -94,8 +94,7 @@ const Services = () => {
                       preload="metadata"
                       className="w-full h-full object-cover pointer-events-none"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                  </div>
+                      </div>
                 </div>
               ))}
             </motion.div>
@@ -148,7 +147,6 @@ const Services = () => {
                   preload="metadata"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
             </div>
           ))}
