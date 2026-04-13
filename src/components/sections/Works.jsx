@@ -198,14 +198,14 @@ const Works = () => {
         </motion.div>
       </div>
       <div className="flex justify-center mt-10 4xl:mt-14">
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           {Array.from({ length: Math.ceil(works.length / 2) }).map((_, pageI) => {
             const isActive = Math.floor((index % works.length) / 2) === pageI;
             return (
               <button
                 key={pageI}
                 onClick={() => setIndex(pageI * 2)}
-                className={`h-[2px] transition-all duration-500 ease-out cursor-pointer ${isActive ? 'w-10 bg-black/60' : 'w-3 bg-black/10 hover:bg-black/20'}`}
+                className={`h-[4px] rounded-full transition-all duration-500 ease-out cursor-pointer py-2 box-content ${isActive ? 'w-12 bg-black/60' : 'w-5 bg-black/10 hover:bg-black/20'}`}
                 aria-label={`Go to page ${pageI + 1}`}
               />
             );
