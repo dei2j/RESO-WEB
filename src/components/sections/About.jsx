@@ -82,7 +82,7 @@ const About = () => {
             in global business <br />
             <span className="text-[#ef283f] italic font-bold">innovation.</span>
           </motion.h2>
-          <motion.div className="mt-44 3xl:mt-56 ml-2 hidden lg:block 4xl:scale-125 origin-left" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}>
+          <motion.div className="mt-44 3xl:mt-56 ml-2 hidden lg:block 4xl:scale-125 origin-left" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: false, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.5 }}>
             <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -101,9 +101,9 @@ const About = () => {
         </div>
       </div>
 
-      <motion.div className="w-full px-6 md:px-20 lg:px-32 shrink-0 pb-6 mt-20 md:mt-16 3xl:mt-24 4xl:mt-28 max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2100px] mx-auto" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}>
+      <motion.div className="w-full px-6 md:px-20 lg:px-32 shrink-0 pb-6 mt-20 md:mt-36 3xl:mt-40 4xl:mt-44 max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2100px] mx-auto" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ duration: 1, delay: 0.6, ease: 'easeOut' }}>
         {/* 모바일 화살표 - 텍스트 위 */}
-        <motion.div className="mb-6 md:hidden" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.7 }}>
+        <motion.div className="mb-6 md:hidden" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: false, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.7 }}>
           <svg width="70" height="20" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -113,7 +113,7 @@ const About = () => {
             We deliver <br className="block md:hidden" /> <span className="text-[#1907b7] font-bold">the best results</span> - <br />
             always with <br className="block md:hidden" /> <span className="text-[#ef283f] font-bold">the right solution.</span>
           </h2>
-          <motion.div className="hidden md:block mb-2 4xl:scale-125 origin-right" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.7 }}>
+          <motion.div className="hidden md:block mb-2 4xl:scale-125 origin-right" initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: false, margin: '-100px' }} transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 0.7 }}>
             <svg width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
