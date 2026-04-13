@@ -296,7 +296,7 @@ const ContactUs = () => {
             </motion.h1>
 
             <form
-              action="https://formsubmit.co/junh9126@gmail.com"
+              action="https://formsubmit.co/a23d5d29f0fdc32dd9a95a7d0994321e"
               method="POST"
               encType="multipart/form-data"
               target="hidden_iframe"
@@ -304,6 +304,7 @@ const ContactUs = () => {
               className="space-y-6 md:space-y-8"
             >
               {/* FormSubmit hidden 설정 */}
+              <input type="hidden" name="_cc" value="hayes@resopr.com" />
               <input type="hidden" name="_subject" value={`New Contact Inquiry - ${form.name}`} />
               <input type="hidden" name="_captcha" value="true" />
               <input type="hidden" name="_template" value="table" />
