@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const BUDGET_OPTIONS = [
-  'Below $5,000',
-  '$5,000–$10,000',
-  '$10,000–$20,000',
-  '$20,000–$30,000',
-  'Above $30,000',
+  'Below $1,000',
+  '$1,000 - $5,000',
+  '$5,000 - $10,000',
+  '$10,000 - $20,000',
+  'Above $20,000',
 ];
 
 const containerVariants = {
