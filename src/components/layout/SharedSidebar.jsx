@@ -7,7 +7,6 @@ const SharedSidebar = ({ currentPage = 'home', onGoAboutUs, onGoHomeAndScrollTo,
 
   const menuItems = [
     { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
     { id: 'works', label: 'Works' },
     { id: 'contact', label: 'Contact us' },
   ];

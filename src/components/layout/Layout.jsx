@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import FloatingLogo from './FloatingLogo';
 import SharedSidebar from './SharedSidebar';
 import Footer from './Footer';
+import CustomCursor from '../CustomCursor';
 
 const Layout = () => {
   const location = useLocation();
@@ -36,7 +37,8 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black cursor-none">
+      <CustomCursor />
       <FloatingLogo onClickLogo={() => navigate('/')} />
       <SharedSidebar
         currentPage={currentPage}
