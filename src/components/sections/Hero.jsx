@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
@@ -28,17 +29,27 @@ const Hero = () => {
 
       {/* 원 + 화살표 */}
       <div className="absolute top-[38%] md:top-auto md:bottom-[22%] left-[6%] md:left-[10%] z-10 pointer-events-none flex items-center gap-3">
-        <div className="hero-circle-pop w-4 h-4 md:w-5 md:h-5 4xl:w-7 4xl:h-7 rounded-full bg-white/70" />
-        <svg
+        <motion.div
+          className="w-4 h-4 md:w-5 md:h-5 4xl:w-7 4xl:h-7 rounded-full bg-white/70"
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
+        />
+        <motion.svg
           width="90"
           height="24"
           viewBox="0 0 90 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="hero-arrow-slide w-[70px] md:w-[90px] 4xl:w-[110px]"
+          className="w-[70px] md:w-[90px] 4xl:w-[110px]"
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 1, delay: 1 }}
         >
           <path d="M0 12H88M88 12L80 5M88 12L80 19" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        </motion.svg>
       </div>
 
       <div className="absolute bottom-[14%] md:bottom-[24%] right-[6%] md:right-[10%] z-10 text-right pointer-events-none">

@@ -3,6 +3,21 @@
 /* 전체 스크롤바 숨김 + 가로 오버플로 방지 */
 html, body {
     overflow-x: clip;
+    cursor: none;
+}
+
+*, *::before, *::after {
+    cursor: none !important;
+}
+
+@layer utilities {
+    .cursor-pointer,
+    .cursor-grab,
+    .cursor-grabbing,
+    .cursor-not-allowed,
+    .cursor-none {
+        cursor: none !important;
+    }
 }
 #root {
     overflow-x: clip;
