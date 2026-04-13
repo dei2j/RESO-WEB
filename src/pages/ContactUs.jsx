@@ -205,7 +205,7 @@ const ContactUs = () => {
     const handleLoad = () => {
       if (!isSubmitting) return;
       setIsSubmitting(false);
-      alert('Your inquiry has been sent successfully.');
+      alert('문의가 성공적으로 전송되었습니다.\n\n추가 문의는 하단 메일로 문의 바랍니다.');
       setForm({ name: '', email: '', mobile: '', brief: '', budget: '' });
       setFiles([]);
     };
@@ -226,7 +226,7 @@ const ContactUs = () => {
     const totalSize = merged.reduce((sum, file) => sum + file.size, 0);
 
     if (totalSize > 10 * 1024 * 1024) {
-      alert('Total file size must be 10MB or less.');
+      alert('파일 총 용량은 10MB 이하여야 합니다.');
       return;
     }
 
@@ -245,7 +245,7 @@ const ContactUs = () => {
     }
     if (!form.name.trim() || !form.email.trim() || !form.mobile.trim() || !form.brief.trim() || !form.budget) {
       e.preventDefault();
-      alert('Please fill in all required fields (Name, Email, Mobile Number, Brief, Budget Range).');
+      alert('모든 필수 항목을 입력해주세요. (Name, Email, Mobile Number, Brief, Budget Range)');
       return;
     }
     // 검증 통과 → 네이티브 form submit 진행 (hidden iframe으로)
