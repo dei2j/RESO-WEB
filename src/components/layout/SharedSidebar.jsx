@@ -33,7 +33,7 @@ const SharedSidebar = ({ currentPage = 'home', onGoAboutUs, onGoHomeAndScrollTo,
     <>
       <motion.button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className={`fixed top-8 right-8 z-50 p-2 focus:outline-none cursor-pointer ${isDarkBg ? 'mix-blend-difference' : ''}`}
+        className={`fixed top-8 right-4 md:right-8 z-50 p-2 focus:outline-none cursor-pointer ${isDarkBg ? 'mix-blend-difference' : ''}`}
         aria-label="메뉴"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -41,15 +41,15 @@ const SharedSidebar = ({ currentPage = 'home', onGoAboutUs, onGoHomeAndScrollTo,
       >
         <div className="space-y-2">
           <span
-            className={`block w-10 h-1 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-3' : ''}`}
+            className={`block w-7 md:w-10 h-[3px] md:h-1 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-3' : ''}`}
             style={{ backgroundColor: isMenuOpen ? '#fff' : (isDarkBg ? '#fff' : '#1907b7') }}
           />
           <span
-            className={`block w-10 h-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}
+            className={`block w-7 md:w-10 h-[3px] md:h-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}
             style={{ backgroundColor: isMenuOpen ? '#fff' : (isDarkBg ? '#fff' : '#1907b7') }}
           />
           <span
-            className={`block w-10 h-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-3' : ''}`}
+            className={`block w-7 md:w-10 h-[3px] md:h-1 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-3' : ''}`}
             style={{ backgroundColor: isMenuOpen ? '#fff' : (isDarkBg ? '#fff' : '#1907b7') }}
           />
         </div>
