@@ -479,13 +479,8 @@ const CaseStudyPage = () => {
 
           {/* ━━ 영상 ━━ */}
           {data.video && (
-            <motion.div
-              className="mb-8 md:mb-12"
-              variants={imageClipVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-            >
+            <div className="mb-8 md:mb-12">
+
               <div className="video-embed-wrapper relative w-full aspect-video rounded-lg overflow-hidden bg-black [&_*]:!cursor-auto">
                 <iframe
                   src={data.video}
@@ -496,7 +491,7 @@ const CaseStudyPage = () => {
                   frameBorder="0"
                 />
               </div>
-            </motion.div>
+            </div>
           )}
 
           {/* ━━ 이미지 그리드 - clipPath + 패럴랙스 ━━ */}
