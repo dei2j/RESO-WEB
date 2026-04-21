@@ -8,7 +8,7 @@ const sharedObserver = new IntersectionObserver(
       if (cb) cb(entry.isIntersecting);
     }
   },
-  { rootMargin: '300px' }
+  { rootMargin: '1500px' }
 );
 
 const LazyVideo = ({ src, className }) => {
@@ -88,6 +88,32 @@ const Services = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // 페이지 로드 완료 후 유휴 시간에 서비스 영상 7개 prefetch (HTTP 캐시)
+  useEffect(() => {
+    const prefetchAll = () => {
+      services.forEach((s) => {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.as = 'video';
+        link.href = s.video;
+        document.head.appendChild(link);
+      });
+    };
+    const schedule = () => {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(prefetchAll, { timeout: 3000 });
+      } else {
+        setTimeout(prefetchAll, 1500);
+      }
+    };
+    if (document.readyState === 'complete') {
+      schedule();
+    } else {
+      window.addEventListener('load', schedule, { once: true });
+      return () => window.removeEventListener('load', schedule);
+    }
   }, []);
 
   useEffect(() => {
