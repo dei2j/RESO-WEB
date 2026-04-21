@@ -26,7 +26,7 @@ const Works = () => {
     { title: 'Lotte wellfood', desc: 'Digital Experience', color: 'bg-[#1907b7]', image: '/img/포트폴리오 썸네일/Lotte.webp', caseUrl: '/case/lotte-wellfood' },
     { title: 'Urban break', desc: 'Digital Experience', color: 'bg-[#ef283f]', image: '/img/Portfolio/Urban Break/Screenshot 2026-03-31 170926.webp', caseUrl: '/case/urban-break' },
   ];
-  const infiniteWorks = Array(20).fill(works).flat();
+  const infiniteWorks = Array(3).fill(works).flat();
 
   const [index, setIndex] = useState(0);
   const GAP = 32;
@@ -133,68 +133,75 @@ const Works = () => {
     <section id="works" className="py-32 bg-white overflow-hidden font-kulim">
       <div className="w-full h-[480px] 3xl:h-[480px] 4xl:h-[660px] flex items-center" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         <motion.div className="flex" style={{ gap: GAP }} animate={{ x: desktopX }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
-          {infiniteWorks.map((work, i) => (
-            <div
-              key={i}
-              role="button"
-              tabIndex={0}
-              onClick={() => work.caseUrl && navigate(work.caseUrl)}
-              onKeyDown={(e) => work.caseUrl && (e.key === 'Enter' || e.key === ' ') && navigate(work.caseUrl)}
-              className="relative flex-none h-[400px] 3xl:h-[420px] 4xl:h-[580px] group overflow-hidden cursor-pointer shadow-sm"
-              style={{ width: CARD_WIDTH_DESKTOP }}
-            >
-              {/* 배경 이미지: 호버 시 확대 + 어두워짐 */}
-              <div className="absolute inset-0 w-full h-full bg-black">
-                <img
-                  src={work.image}
-                  alt={work.title}
-                  className="w-full h-full object-cover transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:opacity-40"
-                />
-              </div>
-
-              {/* 기본 상태: 상시 노출 타이틀 */}
-              <div className="absolute inset-0 p-10 4xl:p-16 flex flex-col justify-between z-10">
-                <div className="relative">
-                  <h3 className="text-4xl 3xl:text-5xl 4xl:text-7xl font-bold text-white transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2">
-                    {work.title}
-                  </h3>
-                  <div className="w-0 group-hover:w-20 h-[2px] bg-[#ef283f] transition-all duration-700 delay-100 mt-4" />
-                </div>
-
-                <div className="flex justify-between items-end">
-                  <span className="text-white/60 text-lg 4xl:text-2xl uppercase tracking-widest transition-opacity duration-500 group-hover:opacity-0">
-                    {work.desc}
-                  </span>
-                </div>
-              </div>
-
-              {/* 호버 시 올라오는 상세 정보 오버레이 */}
-              <div className="absolute inset-0 flex flex-col justify-end p-10 4xl:p-16 bg-gradient-to-t from-black/80 via-transparent to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-20">
-                <div className="space-y-6 4xl:space-y-10">
-                  <div className="overflow-hidden">
-                    <p className="text-white/90 text-xl 4xl:text-3xl font-light leading-relaxed translate-y-10 group-hover:translate-y-0 transition-transform duration-700 delay-100">
-                      Digital Experience <br />
-                      <span className="text-sm 4xl:text-xl text-white/50 uppercase tracking-wider">Strategic Branding & Development</span>
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={(e) => { e.stopPropagation(); work.caseUrl && navigate(work.caseUrl); }}
-                    className="inline-flex items-center gap-4 text-white group/btn translate-y-10 group-hover:translate-y-0 transition-transform duration-700 delay-200"
-                  >
-                    <span className="text-lg 4xl:text-2xl font-bold border-b-2 border-white pb-1 group-hover/btn:border-[#ef283f] transition-colors">
-                      View Case
-                    </span>
-                    <div className="w-10 h-10 4xl:w-14 4xl:h-14 rounded-full border border-white/30 flex items-center justify-center group-hover/btn:bg-[#ef283f] group-hover/btn:border-[#ef283f] transition-all">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="4xl:scale-125">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+          {infiniteWorks.map((work, i) => {
+            const isNearView = i >= index - 3 && i <= index + 5;
+            return (
+              <div
+                key={i}
+                role="button"
+                tabIndex={isNearView ? 0 : -1}
+                onClick={() => isNearView && work.caseUrl && navigate(work.caseUrl)}
+                onKeyDown={(e) => isNearView && work.caseUrl && (e.key === 'Enter' || e.key === ' ') && navigate(work.caseUrl)}
+                className="relative flex-none h-[400px] 3xl:h-[420px] 4xl:h-[580px] group overflow-hidden cursor-pointer shadow-sm"
+                style={{ width: CARD_WIDTH_DESKTOP }}
+              >
+                {isNearView && (
+                  <>
+                    {/* 배경 이미지: 호버 시 확대 + 어두워짐 */}
+                    <div className="absolute inset-0 w-full h-full bg-black">
+                      <img
+                        src={work.image}
+                        alt={work.title}
+                        className="w-full h-full object-cover transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:opacity-40"
+                      />
                     </div>
-                  </button>
-                </div>
+
+                    {/* 기본 상태: 상시 노출 타이틀 */}
+                    <div className="absolute inset-0 p-10 4xl:p-16 flex flex-col justify-between z-10">
+                      <div className="relative">
+                        <h3 className="text-4xl 3xl:text-5xl 4xl:text-7xl font-bold text-white transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-2">
+                          {work.title}
+                        </h3>
+                        <div className="w-0 group-hover:w-20 h-[2px] bg-[#ef283f] transition-all duration-700 delay-100 mt-4" />
+                      </div>
+
+                      <div className="flex justify-between items-end">
+                        <span className="text-white/60 text-lg 4xl:text-2xl uppercase tracking-widest transition-opacity duration-500 group-hover:opacity-0">
+                          {work.desc}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 호버 시 올라오는 상세 정보 오버레이 */}
+                    <div className="absolute inset-0 flex flex-col justify-end p-10 4xl:p-16 bg-gradient-to-t from-black/80 via-transparent to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-20">
+                      <div className="space-y-6 4xl:space-y-10">
+                        <div className="overflow-hidden">
+                          <p className="text-white/90 text-xl 4xl:text-3xl font-light leading-relaxed translate-y-10 group-hover:translate-y-0 transition-transform duration-700 delay-100">
+                            Digital Experience <br />
+                            <span className="text-sm 4xl:text-xl text-white/50 uppercase tracking-wider">Strategic Branding & Development</span>
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={(e) => { e.stopPropagation(); work.caseUrl && navigate(work.caseUrl); }}
+                          className="inline-flex items-center gap-4 text-white group/btn translate-y-10 group-hover:translate-y-0 transition-transform duration-700 delay-200"
+                        >
+                          <span className="text-lg 4xl:text-2xl font-bold border-b-2 border-white pb-1 group-hover/btn:border-[#ef283f] transition-colors">
+                            View Case
+                          </span>
+                          <div className="w-10 h-10 4xl:w-14 4xl:h-14 rounded-full border border-white/30 flex items-center justify-center group-hover/btn:bg-[#ef283f] group-hover/btn:border-[#ef283f] transition-all">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="4xl:scale-125">
+                              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
       <div className="flex justify-center mt-10 4xl:mt-14">

@@ -3,19 +3,23 @@
 /* 전체 스크롤바 숨김 + 가로 오버플로 방지 */
 html, body {
     overflow-x: clip;
+}
+
+/* 커스텀 커서 활성화 시에만 기본 커서 숨김 (터치 디바이스 제외) */
+html.custom-cursor, html.custom-cursor body {
     cursor: none;
 }
 
-*, *::before, *::after {
+html.custom-cursor *, html.custom-cursor *::before, html.custom-cursor *::after {
     cursor: none !important;
 }
 
 @layer utilities {
-    .cursor-pointer,
-    .cursor-grab,
-    .cursor-grabbing,
-    .cursor-not-allowed,
-    .cursor-none {
+    html.custom-cursor .cursor-pointer,
+    html.custom-cursor .cursor-grab,
+    html.custom-cursor .cursor-grabbing,
+    html.custom-cursor .cursor-not-allowed,
+    html.custom-cursor .cursor-none {
         cursor: none !important;
     }
 }

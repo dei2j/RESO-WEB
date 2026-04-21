@@ -1,6 +1,65 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useMotionValue, useAnimationFrame, wrap } from 'framer-motion';
 
+const sharedObserver = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      const cb = entry.target._lazyVideoCb;
+      if (cb) cb(entry.isIntersecting);
+    }
+  },
+  { rootMargin: '300px' }
+);
+
+const LazyVideo = ({ src, className }) => {
+  const ref = useRef(null);
+  const videoRef = useRef(null);
+  const mountedRef = useRef(false);
+  const [shouldMount, setShouldMount] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !src) return;
+    el._lazyVideoCb = (isIntersecting) => {
+      if (isIntersecting && !mountedRef.current) {
+        mountedRef.current = true;
+        setShouldMount(true);
+      }
+      const video = videoRef.current;
+      if (!video) return;
+      if (isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    };
+    sharedObserver.observe(el);
+    return () => {
+      sharedObserver.unobserve(el);
+      delete el._lazyVideoCb;
+    };
+  }, [src]);
+
+  return (
+    <div ref={ref} className={className}>
+      {shouldMount ? (
+        <video
+          ref={videoRef}
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="w-full h-full object-cover pointer-events-none"
+        />
+      ) : (
+        <div className="w-full h-full bg-black" />
+      )}
+    </div>
+  );
+};
+
 const Services = () => {
   const services = [
     { id: '01', title: 'Motion Graphics', video: '/video/home_list/Motion.mp4' },
@@ -84,17 +143,7 @@ const Services = () => {
                     </h3>
                     <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white text-sm font-light">{service.id}</div>
                   </div>
-                  <div className="relative w-full flex-1 overflow-hidden mt-2">
-                    <video
-                      src={service.video}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="w-full h-full object-cover pointer-events-none"
-                    />
-                      </div>
+                  <LazyVideo src={Math.abs(mobileIndex - index) <= 1 ? service.video : ''} className="relative w-full flex-1 overflow-hidden mt-2" />
                 </div>
               ))}
             </motion.div>
@@ -137,17 +186,7 @@ const Services = () => {
                 </h3>
                 <div className="w-12 h-12 4xl:w-16 4xl:h-16 rounded-full border border-white/40 flex items-center justify-center text-white text-base 4xl:text-xl font-light">{service.id}</div>
               </div>
-              <div className="relative w-full flex-1 overflow-hidden">
-                <video
-                  src={service.video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none"
-                />
-              </div>
+              <LazyVideo src={service.video} className="relative w-full flex-1 overflow-hidden" />
             </div>
           ))}
         </motion.div>

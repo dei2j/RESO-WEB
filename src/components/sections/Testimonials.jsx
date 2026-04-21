@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const reviews = [
@@ -68,26 +68,27 @@ const stagger = { duration: 0.9, ease: [0.16, 1, 0.3, 1] };
 
 const Testimonials = () => {
   const [[current, direction], setCurrent] = useState([0, 1]);
-  const [progress, setProgress] = useState(0);
+  const progressRef = useRef(null);
 
   const goTo = useCallback((idx) => {
     setCurrent((prev) => [idx, idx > prev[0] ? 1 : -1]);
-    setProgress(0);
   }, []);
 
   useEffect(() => {
     const start = Date.now();
+    let rafId;
     const tick = () => {
       const elapsed = Date.now() - start;
-      setProgress(Math.min(elapsed / INTERVAL, 1));
+      const pct = Math.min(elapsed / INTERVAL, 1);
+      if (progressRef.current) progressRef.current.style.width = `${pct * 100}%`;
+      if (elapsed < INTERVAL) rafId = requestAnimationFrame(tick);
     };
-    const timer = setInterval(tick, 30);
+    rafId = requestAnimationFrame(tick);
     const advance = setTimeout(() => {
       setCurrent((prev) => [(prev[0] + 1) % reviews.length, 1]);
-      setProgress(0);
     }, INTERVAL);
     return () => {
-      clearInterval(timer);
+      cancelAnimationFrame(rafId);
       clearTimeout(advance);
     };
   }, [current]);
@@ -99,7 +100,7 @@ const Testimonials = () => {
       <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[2200px] mx-auto">
         <h2 className="text-[40px] md:text-5xl 3xl:text-6xl 4xl:text-7xl font-light mb-10 md:mb-16 4xl:mb-20 text-black leading-[45.4px] md:leading-normal tracking-[-1.2px] md:tracking-normal text-left md:text-center">
           Reasonable Chosen <br />
-          <span className="text-gray-400">by</span>{' '}
+          <span className="text-gray-500">by</span>{' '}
           <span className="font-bold text-[#ef283f] italic tracking-normal">Global Leaders</span>
         </h2>
 
@@ -202,9 +203,10 @@ const Testimonials = () => {
                 {i === current && (
                   <>
                     <div className="absolute inset-0 bg-black/5" />
-                    <motion.div
+                    <div
+                      ref={progressRef}
                       className="absolute inset-y-0 left-0 bg-[#1a1065]/60"
-                      style={{ width: `${progress * 100}%` }}
+                      style={{ width: '0%' }}
                     />
                   </>
                 )}

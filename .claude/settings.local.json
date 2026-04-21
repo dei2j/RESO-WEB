@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:illo.tv)"
+      "WebFetch(domain:illo.tv)",
+      "Bash(xargs ls:*)",
+      "Bash(find /c/Users/lumos/Desktop/reso/public -type f \\\\\\( -name \"*.mp4\" -o -name \"*.webm\" \\\\\\) -exec ls -lh {} \\\\;)"
     ]
   }
 }

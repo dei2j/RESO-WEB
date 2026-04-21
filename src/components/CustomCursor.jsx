@@ -12,18 +12,17 @@ const CustomCursor = () => {
 
   useEffect(() => {
     isTouchDevice.current = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice.current) return;
+    if (isTouchDevice.current) {
+      document.documentElement.classList.remove('custom-cursor');
+      return;
+    }
+
+    // 마우스 디바이스에서만 기본 커서 숨김
+    document.documentElement.classList.add('custom-cursor');
 
     const handleMouseMove = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      const el = document.elementFromPoint(e.clientX, e.clientY);
-      const shouldHide = el && (el.tagName === 'IFRAME' || el.closest('.video-embed-wrapper') || el.closest('.next-project-section'));
-      if (shouldHide) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
     };
 
     const handleMouseDown = () => setIsClicking(true);
@@ -36,11 +35,37 @@ const CustomCursor = () => {
       setIsHovering(!!target);
     };
 
-    // 드래그 중에도 커스텀 커서 유지
     const handleDragOver = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
+
+    // hide zone(iframe, video-embed-wrapper, next-project-section)에 진입/이탈만 감지
+    const hideZoneEnter = () => setIsVisible(false);
+    const hideZoneLeave = () => setIsVisible(true);
+
+    const attachHideZone = (el) => {
+      el.addEventListener('mouseenter', hideZoneEnter);
+      el.addEventListener('mouseleave', hideZoneLeave);
+    };
+    const detachHideZone = (el) => {
+      el.removeEventListener('mouseenter', hideZoneEnter);
+      el.removeEventListener('mouseleave', hideZoneLeave);
+    };
+
+    const HIDE_SELECTOR = 'iframe, .video-embed-wrapper, .next-project-section';
+    document.querySelectorAll(HIDE_SELECTOR).forEach(attachHideZone);
+
+    // ��적으로 추가되는 요소도 감지 (직속 자식만 감시하여 부하 최소화)
+    const mo = new MutationObserver(() => {
+      document.querySelectorAll(HIDE_SELECTOR).forEach((el) => {
+        if (!el._hideZoneAttached) {
+          el._hideZoneAttached = true;
+          attachHideZone(el);
+        }
+      });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mousedown', handleMouseDown);
@@ -52,6 +77,9 @@ const CustomCursor = () => {
     document.addEventListener('drag', handleDragOver);
 
     return () => {
+      document.documentElement.classList.remove('custom-cursor');
+      mo.disconnect();
+      document.querySelectorAll(HIDE_SELECTOR).forEach(detachHideZone);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
@@ -61,7 +89,7 @@ const CustomCursor = () => {
       document.removeEventListener('dragover', handleDragOver);
       document.removeEventListener('drag', handleDragOver);
     };
-  }, [mouseX, mouseY, isVisible]);
+  }, [mouseX, mouseY]);
 
   if (isTouchDevice.current) return null;
 
