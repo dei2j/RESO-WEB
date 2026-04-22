@@ -33,11 +33,10 @@ const UnderlineInput = ({ label, name, value, onChange, type = 'text', ...rest }
   return (
     <div className="relative pt-6 pb-2 border-b border-gray-300 transition-colors duration-300 hover:border-gray-500 focus-within:border-[#1907b7]">
       <label
-        className={`absolute left-0 font-kulim font-light text-gray-400 transition-all duration-300 pointer-events-none ${
-          focused || hasValue
+        className={`absolute left-0 font-kulim font-light text-gray-400 transition-all duration-300 pointer-events-none ${focused || hasValue
             ? 'top-0 text-xs md:text-sm -translate-y-0.5 text-[#1907b7]'
             : 'top-6 text-lg md:text-xl'
-        }`}
+          }`}
       >
         {label}
       </label>
@@ -62,11 +61,10 @@ const UnderlineTextarea = ({ label, name, value, onChange, ...rest }) => {
   return (
     <div className="relative pt-6 pb-2 border-b border-gray-300 transition-colors duration-300 hover:border-gray-500 focus-within:border-[#1907b7]">
       <label
-        className={`absolute left-0 font-kulim font-light text-gray-400 transition-all duration-300 pointer-events-none ${
-          focused || hasValue
+        className={`absolute left-0 font-kulim font-light text-gray-400 transition-all duration-300 pointer-events-none ${focused || hasValue
             ? 'top-0 text-xs md:text-sm -translate-y-0.5 text-[#1907b7]'
             : 'top-6 text-lg md:text-xl'
-        }`}
+          }`}
       >
         {label}
       </label>
@@ -117,9 +115,8 @@ const BudgetDropdown = ({ label, value, options, onSelect }) => {
         className={`relative pt-6 pb-2 border-b border-gray-300 transition-colors duration-300 hover:border-gray-500 ${open ? 'border-[#1907b7]' : ''}`}
       >
         <span
-          className={`absolute left-0 font-kulim font-light text-gray-400 transition-all duration-300 pointer-events-none ${
-            hasValue || open ? 'top-0 text-xs md:text-sm -translate-y-0.5 text-[#1907b7]' : 'top-6 text-lg md:text-xl'
-          }`}
+          className={`absolute left-0 font-kulim font-light text-gray-400 transition-all duration-300 pointer-events-none ${hasValue || open ? 'top-0 text-xs md:text-sm -translate-y-0.5 text-[#1907b7]' : 'top-6 text-lg md:text-xl'
+            }`}
         >
           {label}
         </span>
@@ -296,7 +293,7 @@ const ContactUs = () => {
             </motion.h1>
 
             <form
-              action="https://formsubmit.co/a23d5d29f0fdc32dd9a95a7d0994321e"
+              action="https://formsubmit.co/mjkim@resopr.com"
               method="POST"
               encType="multipart/form-data"
               target="hidden_iframe"
@@ -354,11 +351,10 @@ const ContactUs = () => {
               <motion.div variants={itemVariants} className="mt-4 mb-4">
                 <div className="relative pt-6 pb-4 border-b border-gray-300 transition-colors duration-300 hover:border-gray-500 group">
                   <span
-                    className={`absolute left-0 font-kulim font-light text-gray-400 transition-all duration-300 pointer-events-none ${
-                      files.length
+                    className={`absolute left-0 font-kulim font-light text-gray-400 transition-all duration-300 pointer-events-none ${files.length
                         ? 'top-0 text-xs md:text-sm -translate-y-0.5 text-[#1907b7]'
                         : 'top-6 text-lg md:text-xl'
-                    }`}
+                      }`}
                   >
                     File
                   </span>
