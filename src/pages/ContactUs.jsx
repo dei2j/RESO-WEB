@@ -195,19 +195,37 @@ const ContactUs = () => {
     fileInputRef.current.files = dt.files;
   }, [files]);
 
-  // hidden iframe 로드 완료 시 전송 성공 처리
+  // hidden iframe 로드 완료 시 전송 성공 처리 + timeout으로 실패 감지
   useEffect(() => {
     const iframe = iframeRef.current;
-    if (!iframe) return;
+    if (!iframe || !isSubmitting) return;
+
+    let completed = false;
+
     const handleLoad = () => {
-      if (!isSubmitting) return;
+      if (completed) return;
+      completed = true;
+      clearTimeout(timeoutId);
       setIsSubmitting(false);
       alert('문의가 성공적으로 전송되었습니다.\n\n추가 문의는 하단 메일로 문의 바랍니다.');
       setForm({ name: '', email: '', mobile: '', brief: '', budget: '' });
       setFiles([]);
     };
+
+    // 15초 안에 응답이 없으면 실패로 간주
+    const timeoutId = setTimeout(() => {
+      if (completed) return;
+      completed = true;
+      iframe.removeEventListener('load', handleLoad);
+      setIsSubmitting(false);
+      alert('전송에 실패했습니다.\n\n네트워크를 확인하거나 mjkim@resopr.com 으로 직접 연락주세요.');
+    }, 15000);
+
     iframe.addEventListener('load', handleLoad);
-    return () => iframe.removeEventListener('load', handleLoad);
+    return () => {
+      clearTimeout(timeoutId);
+      iframe.removeEventListener('load', handleLoad);
+    };
   }, [isSubmitting]);
 
   const handleChange = (e) => {
@@ -304,6 +322,15 @@ const ContactUs = () => {
               <input type="hidden" name="_cc" value="hayes@resopr.com" />
               <input type="hidden" name="_subject" value={`New Contact Inquiry - ${form.name}`} />
               <input type="hidden" name="_captcha" value="false" />
+              {/* Honeypot 필드 (봇 차단용 - 사용자에게 안 보임) */}
+              <input
+                type="text"
+                name="_honey"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{ position: 'absolute', left: '-9999px', width: 0, height: 0, opacity: 0 }}
+                aria-hidden="true"
+              />
               <input type="hidden" name="_template" value="table" />
 
               <motion.div variants={itemVariants} className="mb-1">
