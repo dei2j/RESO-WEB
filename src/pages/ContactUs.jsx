@@ -303,7 +303,7 @@ const ContactUs = () => {
               {/* FormSubmit hidden 설정 */}
               <input type="hidden" name="_cc" value="hayes@resopr.com" />
               <input type="hidden" name="_subject" value={`New Contact Inquiry - ${form.name}`} />
-              <input type="hidden" name="_captcha" value="true" />
+              <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
 
               <motion.div variants={itemVariants} className="mb-1">
