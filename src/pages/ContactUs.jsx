@@ -171,10 +171,11 @@ const BudgetDropdown = ({ label, value, options, onSelect }) => {
   );
 };
 
+const MAX_TOTAL_SIZE = 4 * 1024 * 1024;
+
 const ContactUs = () => {
   const rightRef = useRef(null);
   const fileInputRef = useRef(null);
-  const iframeRef = useRef(null);
 
   const [form, setForm] = useState({
     name: '',
@@ -183,50 +184,15 @@ const ContactUs = () => {
     brief: '',
     budget: '',
   });
-  // 파일은 별도 state로 관리 (DataTransfer로 file input에 동기화)
   const [files, setFiles] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // files state가 바뀔 때마다 실제 file input에 동기화
   useEffect(() => {
     if (!fileInputRef.current) return;
     const dt = new DataTransfer();
     files.forEach((f) => dt.items.add(f));
     fileInputRef.current.files = dt.files;
   }, [files]);
-
-  // hidden iframe 로드 완료 시 전송 성공 처리 + timeout으로 실패 감지
-  useEffect(() => {
-    const iframe = iframeRef.current;
-    if (!iframe || !isSubmitting) return;
-
-    let completed = false;
-
-    const handleLoad = () => {
-      if (completed) return;
-      completed = true;
-      clearTimeout(timeoutId);
-      setIsSubmitting(false);
-      alert('문의가 성공적으로 전송되었습니다.\n\n추가 문의는 하단 메일로 문의 바랍니다.');
-      setForm({ name: '', email: '', mobile: '', brief: '', budget: '' });
-      setFiles([]);
-    };
-
-    // 15초 안에 응답이 없으면 실패로 간주
-    const timeoutId = setTimeout(() => {
-      if (completed) return;
-      completed = true;
-      iframe.removeEventListener('load', handleLoad);
-      setIsSubmitting(false);
-      alert('전송에 실패했습니다.\n\n네트워크를 확인하거나 mjkim@resopr.com 으로 직접 연락주세요.');
-    }, 15000);
-
-    iframe.addEventListener('load', handleLoad);
-    return () => {
-      clearTimeout(timeoutId);
-      iframe.removeEventListener('load', handleLoad);
-    };
-  }, [isSubmitting]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -240,8 +206,8 @@ const ContactUs = () => {
     const merged = [...files, ...newFiles];
     const totalSize = merged.reduce((sum, file) => sum + file.size, 0);
 
-    if (totalSize > 10 * 1024 * 1024) {
-      alert('파일 총 용량은 10MB 이하여야 합니다.');
+    if (totalSize > MAX_TOTAL_SIZE) {
+      alert('파일 총 용량은 4MB 이하여야 합니다.');
       return;
     }
 
@@ -252,19 +218,60 @@ const ContactUs = () => {
     setFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
-  // 네이티브 form 제출을 허용 (e.preventDefault 안 함)
-  const handleSubmit = (e) => {
-    if (isSubmitting) {
-      e.preventDefault();
-      return;
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
     if (!form.name.trim() || !form.email.trim() || !form.mobile.trim() || !form.brief.trim() || !form.budget) {
-      e.preventDefault();
       alert('모든 필수 항목을 입력해주세요. (Name, Email, Mobile Number, Brief, Budget Range)');
       return;
     }
-    // 검증 통과 → 네이티브 form submit 진행 (hidden iframe으로)
+
+    const totalSize = files.reduce((sum, f) => sum + f.size, 0);
+    if (totalSize > MAX_TOTAL_SIZE) {
+      alert('파일 총 용량은 4MB 이하여야 합니다.');
+      return;
+    }
+
     setIsSubmitting(true);
+
+    try {
+      const formData = new FormData();
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('mobile', form.mobile);
+      formData.append('brief', form.brief);
+      formData.append('budget', form.budget);
+      formData.append('_honey', e.target._honey?.value || '');
+      files.forEach((f) => formData.append('attachment', f));
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || `Request failed (${res.status})`);
+      }
+
+      alert('문의가 성공적으로 전송되었습니다.\n\n추가 문의는 하단 메일로 문의 바랍니다.');
+      setForm({ name: '', email: '', mobile: '', brief: '', budget: '' });
+      setFiles([]);
+    } catch (err) {
+      const message = err.name === 'AbortError'
+        ? '요청 시간이 초과되었습니다.'
+        : err.message || '전송에 실패했습니다.';
+      alert(`${message}\n\n네트워크를 확인하거나 mjkim@resopr.com 으로 직접 연락주세요.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const rightColumnVariants = {
@@ -291,9 +298,6 @@ const ContactUs = () => {
 
   return (
     <main className="bg-white min-h-screen text-[#050505]">
-      {/* 네이티브 form 응답을 받을 hidden iframe */}
-      <iframe ref={iframeRef} name="hidden_iframe" className="hidden" title="form-target" />
-
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-32 md:pt-44 lg:pt-52 pb-32 md:pb-40">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-12 lg:gap-20 xl:gap-24 items-stretch min-h-0"
@@ -311,17 +315,11 @@ const ContactUs = () => {
             </motion.h1>
 
             <form
-              action="https://formsubmit.co/mjkim@resopr.com"
               method="POST"
               encType="multipart/form-data"
-              target="hidden_iframe"
               onSubmit={handleSubmit}
               className="space-y-6 md:space-y-8"
             >
-              {/* FormSubmit hidden 설정 */}
-              <input type="hidden" name="_cc" value="hayes@resopr.com" />
-              <input type="hidden" name="_subject" value={`New Contact Inquiry - ${form.name}`} />
-              <input type="hidden" name="_captcha" value="false" />
               {/* Honeypot 필드 (봇 차단용 - 사용자에게 안 보임) */}
               <input
                 type="text"
@@ -331,7 +329,6 @@ const ContactUs = () => {
                 style={{ position: 'absolute', left: '-9999px', width: 0, height: 0, opacity: 0 }}
                 aria-hidden="true"
               />
-              <input type="hidden" name="_template" value="table" />
 
               <motion.div variants={itemVariants} className="mb-1">
                 <UnderlineInput
@@ -410,7 +407,7 @@ const ContactUs = () => {
                     ) : null}
                     <div className="mt-2 flex items-center justify-between gap-4">
                       <p className="font-kulim font-light text-xs md:text-sm text-gray-400">
-                        Max total upload size: 10MB
+                        Max total upload size: 4MB
                       </p>
                       <label className="flex items-center justify-end cursor-pointer">
                         <span className="font-kulim font-light text-[#9dc2d6] text-lg md:text-xl">
