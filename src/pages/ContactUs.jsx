@@ -261,6 +261,13 @@ const ContactUs = () => {
         throw new Error(data.error || `Request failed (${res.status})`);
       }
 
+      // Google Ads 전환 추적 (전송 성공 시에만 집계)
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18105280658/jzjZCJa-1J8cEJLRorlD',
+        });
+      }
+
       alert('문의가 성공적으로 전송되었습니다.\n\n추가 문의는 하단 메일로 문의 바랍니다.');
       setForm({ name: '', email: '', mobile: '', brief: '', budget: '' });
       setFiles([]);
